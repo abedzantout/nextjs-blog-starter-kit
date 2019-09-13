@@ -1,6 +1,6 @@
 import { Author } from './author';
 
-export type Blog = {
+export type BlogPost = {
   title: string;
   slug: string;
   heroImage: any;
