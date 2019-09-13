@@ -9,7 +9,10 @@
     "start": "next start",
     "export": "next build && next export",
     "type-check": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:write": "prettier \"**/*.{ts,js,json,md,scss}\" --write",
+    "format:test": "prettier \"**/*.{ts,js,json,md,scss}\" --list-different",
+    "lint": "eslint --fix . && echo 'Lint complete.'"
   },
   "repository": {
     "type": "git",
@@ -32,17 +35,23 @@
   },
   "homepage": "https://github.com/techhiveIO/nextjs-static-boilerplate#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.0.5",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "serve": "^11.1.0"
+    "contentful": "~7.9.1",
+    "eslint-plugin-prettier": "~3.1.0",
+    "express": "~4.17.1",
+    "isomorphic-unfetch": "~3.0.0",
+    "next": "~9.0.5",
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
+    "serve": "~11.1.0"
   },
   "devDependencies": {
-    "@types/node": "^12.7.5",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
-    "typescript": "^3.6.3"
+    "@types/node": "~12.7.5",
+    "@types/react": "~16.9.2",
+    "@types/react-dom": "~16.9.0",
+    "@typescript-eslint/eslint-plugin": "~2.2.0",
+    "@typescript-eslint/parser": "~2.2.0",
+    "eslint-config-prettier": "~6.3.0",
+    "prettier": "~1.18.2",
+    "typescript": "~3.6.3"
   }
 }
