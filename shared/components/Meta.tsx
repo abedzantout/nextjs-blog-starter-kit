@@ -6,7 +6,7 @@ type Props = {
     tag: Tag;
 }
 
-const MetaComponent: FunctionComponent<Props> = ({tag}) => {
+const Meta: FunctionComponent<Props> = ({tag}) => {
     return (
         <Fragment>
             <Head>
@@ -64,4 +64,4 @@ const MetaComponent: FunctionComponent<Props> = ({tag}) => {
 };
 
 
-export default MetaComponent;
+export default Meta;

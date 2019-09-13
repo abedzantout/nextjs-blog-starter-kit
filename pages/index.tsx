@@ -1,11 +1,11 @@
 import React from 'react';
 import { NextPage } from 'next';
-import MetaComponent from '../shared/components/meta-component';
+import Meta from '../shared/components/Meta';
 import { defaultMetaTags } from '../core/constants';
 
 const IndexPage: NextPage = () => {
     return (
-        <MetaComponent tag={defaultMetaTags}/>
+        <Meta tag={defaultMetaTags}/>
     )
 };
 
