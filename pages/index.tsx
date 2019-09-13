@@ -1,16 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NextPage } from 'next';
-import Meta from '../shared/components/meta';
+
 import { defaultMetaTags } from '../core/constants';
+import Layout from '../shared/components/layout';
 
 const IndexPage: NextPage = () => {
     return (
-        <Fragment>
-            <Meta tag={defaultMetaTags}/>
-            <div>
+        <Layout meta={defaultMetaTags}>
+            <div>Hello World!</div>
 
-            </div>
-        </Fragment>
+        </Layout>
     )
 };
 
