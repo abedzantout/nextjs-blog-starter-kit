@@ -1,5 +1,5 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { Tag } from '../../interfaces/tag';
+import { Tag } from '../../../interfaces/tag';
 import Head from "next/head";;
 
 type Props = {
