@@ -31,7 +31,8 @@ const IndexPage: NextPage = (props: Props) => {
 
             <style jsx>
                 {`
-                .cards-deck { display: grid; grid-column-gap: 1rem; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: auto;}`
+                .cards-deck { display: grid; grid-column-gap: 1rem; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: auto; rid-row-gap: 1rem;}
+                `
                 }
             </style>
         </Layout>
