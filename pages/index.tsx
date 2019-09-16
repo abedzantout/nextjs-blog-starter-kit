@@ -5,17 +5,35 @@ import { defaultMetaTags } from '../core/constants';
 import Layout from '../shared/components/layout';
 import { getBlogPostEntries } from '../core/contentful';
 import { BlogPost } from '../interfaces/post';
+import Card from '../shared/components/card';
 
 type Props = {
     entries: BlogPost[];
     url: any;
 }
-const IndexPage: NextPage = (props: Props) => {
 
+const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key={index}/>));
+
+const IndexPage: NextPage = (props: Props) => {
+    const entries = props.entries;
+
+    console.log(entries);
     return (
 
         <Layout meta={defaultMetaTags}>
-            <div>Latest posts</div>
+            <div>
+                <h1>Latest posts</h1>
+
+                <div className="cards-deck">
+                    {cards(entries)}
+                </div>
+            </div>
+
+            <style jsx>
+                {`
+                .cards-deck { display: grid; grid-column-gap: 1rem; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: auto;}`
+                }
+            </style>
         </Layout>
     )
 };
