@@ -24,9 +24,10 @@ const PostPage: NextPage = (props: Props) => {
                 </div>
                 <ReactMarkdown className="markdown" source={props.article.body}/>
             </div>
-            {/*TODO: jsx doesn't work with markdown*/}
-            <style jsx>{
+            {/*xjsx doesn't work with markdown unless global*/}
+            <style jsx global>{
                 `
+                     .post-container { padding: 1rem 12rem; };
                      .markdown p,
                      .markdown ul,
                      .markdown ol {
