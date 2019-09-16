@@ -11,11 +11,11 @@ type Props = {
     url: any;
 }
 const IndexPage: NextPage = (props: Props) => {
-    console.log(props.entries);
+
     return (
+
         <Layout meta={defaultMetaTags}>
             <div>Latest posts</div>
-
         </Layout>
     )
 };
