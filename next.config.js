@@ -1,11 +1,9 @@
 // next.config.js
 // const withSourceMaps = require('@zeit/next-source-maps')();
+
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-// const {
-//     generateAllArticles,
-//     generateAllAuthors,
-// } = require('./scripts/fetchAllEntities');
+const { generateAllArticles } = require('./utils/helpers');
 
 module.exports = {
   webpack: config => {
@@ -22,26 +20,26 @@ module.exports = {
 
     return config;
   },
+
   exportPathMap: async () => {
-    // const articles = await generateAllArticles();
-    // const authors = await generateAllAuthors();
-    //
-    // const insights = articles.reduce(
-    //     (pages, entry) =>
-    //         Object.assign({}, pages, {
-    //             [`/${entry.slug}`]: {
-    //                 page: '/post',
-    //                 query: {post: entry.slug},
-    //             },
-    //         }),
-    //     {},
-    // );
-    //
+    const articles = await generateAllArticles();
+
+    const insights = articles.reduce(
+      (pages, entry) =>
+        Object.assign({}, pages, {
+          [`/post/${entry.slug}`]: {
+            page: '/post',
+            query: { post: entry.slug }
+          }
+        }),
+      {}
+    );
 
     const pages = {
-      '/': { page: '/' }
+      '/': { page: '/' },
+      '/post': { page: '/post' }
     };
 
-    return Object.assign({}, pages);
+    return Object.assign({}, pages, insights);
   }
 };

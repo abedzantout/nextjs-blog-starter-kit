@@ -53,3 +53,33 @@ export async function getBlogPostEntries() {
     console.log(error);
   }
 }
+
+export function getPostBySlug(slug) {
+  return fetchPostBySlug(slug)
+    .then((entries: ContentfulCollection<any>) => {
+      if (entries.items.length) {
+        const content: { sys: any; fields: any } = entries.items[0];
+
+        const author = {
+          name: content.fields.author.fields.name,
+          title: content.fields.author.fields.title,
+          slug: content.fields.author.fields.slug,
+          image: content.fields.author.fields.image.fields.file.url
+        };
+
+        return {
+          id: content.sys.id,
+          slug: content.fields.slug,
+          body: content.fields.body,
+          title: content.fields.title,
+          description: content.fields.description,
+          heroImage: { url: content.fields.heroImage.fields.file.url },
+          author: { ...author, id: content.fields.author.sys.id },
+          publishedAt: content.fields.publishDate
+            ? new Date(content.fields.publishDate)
+            : new Date(content.sys.createdAt)
+        };
+      }
+    })
+    .catch(err => null);
+}

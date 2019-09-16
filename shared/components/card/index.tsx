@@ -1,9 +1,16 @@
 import React, { FunctionComponent, Fragment } from 'react';
+import Link from 'next/link';
 
 type Props = {
     info: { id: string, title: string; description: string; heroImage: string; publishedAt: Date; slug: string }
 }
+const getNavigationLink = (slug) => `/post/${slug}`;
+const getHref = (slug) => ({
+    pathname: '/post',
+    query: {post: slug},
+});
 const Card: FunctionComponent<Props> = ({info}) => {
+
     return (
         <Fragment>
             <div className="card">
@@ -14,7 +21,9 @@ const Card: FunctionComponent<Props> = ({info}) => {
                 </div>
 
                 <div className="card-actions">
-                    <button className="card-actions__button">Explore</button>
+                    <Link href={getHref(info.slug)} as={getNavigationLink(info.slug)}>
+                        <a className="card-actions__button">Explore</a>
+                    </Link>
                 </div>
             </div>
             <style jsx>{`
@@ -28,7 +37,7 @@ const Card: FunctionComponent<Props> = ({info}) => {
                 };
                 .card-body {padding: 1rem;};
                 .card-actions {display: flex; justify-content: center;};
-                .card-actions__button {background-image: linear-gradient(90deg, #0CB2E2 0%, #4FC0B0 100%); border-radius: 2px; color: #ffffff; padding: 1rem 4rem; border: none;};
+                .card-actions__button {background-image: linear-gradient(90deg, #0CB2E2 0%, #4FC0B0 100%); border-radius: 2px; color: #ffffff; padding: 1rem 4rem; border: none; text-decoration: none;};
                 .card-actions__button:hover {cursor: pointer};
             `}
             </style>
