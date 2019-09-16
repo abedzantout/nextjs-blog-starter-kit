@@ -20,7 +20,10 @@ const Layout: FunctionComponent<Props> = ({meta, children}) => {
                 </main>
             </div>
             <style jsx global>{`
+                @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+                html, body { height:100%; width:100%; font-family: 'Roboto', sans-serif; }
                 body { margin: 0; padding: 0}
+                .layout { padding: 2rem 2.5rem; }
             `}</style>
         </Fragment>
     );
