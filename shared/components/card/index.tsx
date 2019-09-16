@@ -18,7 +18,7 @@ const Card: FunctionComponent<Props> = ({info}) => {
                 </div>
             </div>
             <style jsx>{`
-                .card { height: 400px; width: 340px; background: #FFFFFF; box-shadow: 0 20px 20px 0 rgba(0,0,0,0.07); border-radius: 4px; overflow: hidden; };
+                .card { height: 400px; width: 340px; background: #FFFFFF; box-shadow: 0 20px 20px 0 rgba(0,0,0,0.07); border-radius: 4px; overflow: hidden; transition: box-shadow .2s; };
                 .card:hover { box-shadow:0 40px 40px 0 rgba(0,0,0,0.2); cursor: pointer; }
                 .card-header {
                     height: 40%;

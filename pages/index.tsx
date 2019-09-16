@@ -9,6 +9,7 @@ import Card from '../shared/components/card';
 
 type Props = {
     entries: BlogPost[];
+    tags: string[];
     url: any;
 }
 
@@ -16,10 +17,7 @@ const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key
 
 const IndexPage: NextPage = (props: Props) => {
     const entries = props.entries;
-
-    console.log(entries);
     return (
-
         <Layout meta={defaultMetaTags}>
             <div>
                 <h1>Latest posts</h1>
@@ -31,7 +29,7 @@ const IndexPage: NextPage = (props: Props) => {
 
             <style jsx>
                 {`
-                .cards-deck { display: grid; grid-column-gap: 1rem; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: auto; rid-row-gap: 1rem;}
+                    .cards-deck { display: grid; grid-column-gap: 1rem; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: auto; rid-row-gap: 1rem;};
                 `
                 }
             </style>
@@ -41,8 +39,9 @@ const IndexPage: NextPage = (props: Props) => {
 
 IndexPage.getInitialProps = async ({req}) => {
     const entries = await getBlogPostEntries();
-
-    return {entries};
+    const allTags = entries.map(entry => entry.tags);
+    const tags = new Set(allTags.flat(1));
+    return {entries, tags};
 };
 
 export default IndexPage;

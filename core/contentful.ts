@@ -28,9 +28,10 @@ async function fetchPostBySlug(slug) {
 export async function getBlogPostEntries() {
   try {
     const contents = await client.getEntries({
-      // include: 1,
+      include: 1,
       content_type: CONTENT_TYPE_BLOGPOST
     });
+
     return contents.items
       .map(({ sys, fields }: { sys: any; fields: any }) => ({
         id: sys.id,
@@ -38,6 +39,7 @@ export async function getBlogPostEntries() {
         description: fields.description,
         heroImage: fields.heroImage.fields.file.url,
         slug: fields.slug,
+        tags: fields.tags,
         publishedAt: fields.publishedAt
           ? new Date(`${fields.publishedAt}Z`)
           : new Date(`${sys.createdAt}Z`)
