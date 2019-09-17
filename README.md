@@ -21,12 +21,12 @@ yarn dev
 ## Decisions made
 
 ### Why?
-Developers often want a good starting point when implementing a new website. 
-With this starter kit, the developer can implement a new blog, or use it as a 
+
+Developers often want a good starting point when implementing a new website.
+With this starter kit, the developer can implement a new blog, or use it as a
 foundation to build any static website using NextJS
 
-License
--------
+## License
 
 NextJS Static Starter is © 2019 Techhive.IO LLC . It is distributed under the [Creative Commons
 Attribution License](http://creativecommons.org/licenses/by/3.0/).

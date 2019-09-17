@@ -25,14 +25,18 @@ async function fetchPostBySlug(slug) {
   });
 }
 
-export async function getBlogPostEntries() {
+export async function getBlogPostEntries(
+  { limit, skip }: { limit?: number; skip?: number } = { limit: 5, skip: 0 }
+) {
   try {
     const contents = await client.getEntries({
       include: 1,
+      limit,
+      skip,
       content_type: CONTENT_TYPE_BLOGPOST
     });
 
-    return contents.items
+    const entries = contents.items
       .map(({ sys, fields }: { sys: any; fields: any }) => ({
         id: sys.id,
         title: fields.title,
@@ -48,6 +52,10 @@ export async function getBlogPostEntries() {
         (a, b) =>
           new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
       );
+
+    const total = contents.total;
+
+    return { entries, total, limit, skip };
   } catch (error) {
     // TODO: add error handling
     console.log(error);

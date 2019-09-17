@@ -6,11 +6,17 @@ import Layout from '../shared/components/layout';
 import { getBlogPostEntries } from '../core/contentful';
 import { BlogPost } from '../interfaces/post';
 import Card from '../shared/components/card';
+import Paginator from '../shared/components/paginator';
+
+const calculateRange = (length) => Array.from({length}, (v, k) => k + 1);
 
 type Props = {
     entries: BlogPost[];
     tags: string[];
     url: any;
+    total: number;
+    skip: number;
+    limit: number;
 }
 
 const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key={index}/>));
@@ -18,17 +24,26 @@ const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key
 const IndexPage: NextPage = (props: Props) => {
     const entries = props.entries;
     const tags = props.tags || [];
+    const total = props.total;
+    const skip = props.skip;
+    const limit = props.limit;
+    const rangeLimit = Math.ceil(total / limit);
+    const range = calculateRange(rangeLimit);
 
     return (
         <Layout meta={defaultMetaTags}>
             <div className="container">
                 <div className="body">
-                    <h1>Latest posts</h1>
-                    <div className="cards-deck">
-                        {cards(entries)}
+                    <div className="blogposts">
+                        <h1>Latest posts</h1>
+                        <div className="cards-deck">
+                            {cards(entries)}
+                        </div>
+                    </div>
+                    <div className="pagination">
+                        <Paginator range={range} skip={skip}/>
                     </div>
                 </div>
-
                 <div className="sidenav">
                     <h2>Choose your topic</h2>
                     <div className="navigation-by-tag">
@@ -54,10 +69,10 @@ const IndexPage: NextPage = (props: Props) => {
 };
 
 IndexPage.getInitialProps = async ({req}) => {
-    const entries = await getBlogPostEntries();
+    const {entries, total, skip, limit} = await getBlogPostEntries({limit: 1});
     const allTags = entries.map(entry => entry.tags);
     const tags = Array.from(new Set(allTags.flat(1)));
-    return {entries, tags};
+    return {entries, tags, total, skip, limit};
 };
 
 export default IndexPage;
