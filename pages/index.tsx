@@ -17,11 +17,17 @@ type Props = {
     total: number;
     skip: number;
     limit: number;
+    page?: number;
 }
 
 const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key={index}/>));
 
+const handlePaginationChange = (event) => {
+    console.log(event)
+};
+
 const IndexPage: NextPage = (props: Props) => {
+    const page = !!props.page ? props.page : 1;
     const entries = props.entries;
     const tags = props.tags || [];
     const total = props.total;
@@ -41,7 +47,7 @@ const IndexPage: NextPage = (props: Props) => {
                         </div>
                     </div>
                     <div className="pagination">
-                        <Paginator range={range} skip={skip}/>
+                        <Paginator handlePaginationChange={handlePaginationChange} range={range} skip={skip}/>
                     </div>
                 </div>
                 <div className="sidenav">
@@ -68,11 +74,12 @@ const IndexPage: NextPage = (props: Props) => {
     )
 };
 
-IndexPage.getInitialProps = async ({req}) => {
+IndexPage.getInitialProps = async ({req, query}) => {
+    const {page} = query;
     const {entries, total, skip, limit} = await getBlogPostEntries({limit: 1});
     const allTags = entries.map(entry => entry.tags);
     const tags = Array.from(new Set(allTags.flat(1)));
-    return {entries, tags, total, skip, limit};
+    return {page, entries, tags, total, skip, limit};
 };
 
 export default IndexPage;
