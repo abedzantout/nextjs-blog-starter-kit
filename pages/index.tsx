@@ -61,7 +61,7 @@ const IndexPage: NextPage = (props: Props) => {
                     </div>
                 </div>
                 <div className="pagination">
-                    <Paginator handlePaginationChange={(event) => updateSkip(event)} range={range}/>
+                    <Paginator handlePaginationChange={(event) => updateSkip(event)} range={range} skip={2}/>
                 </div>
             </div>
         </Layout>

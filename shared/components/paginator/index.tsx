@@ -1,6 +1,5 @@
 import React, {FunctionComponent, Fragment, useState, useEffect} from 'react';
 import './styles.css';
-import {render} from "react-dom";
 
 type Props = {
     skip?: number;
@@ -11,6 +10,10 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
     skip = !!skip ? skip : 0;
 
     const [page, setPageNumber] = useState(1);
+
+    // useEffect(() => {
+    //     return setPageNumber(skip);
+    // }, [skip]);
 
     const moveToNextPage = () => {
         if (page > 1) {
@@ -30,6 +33,11 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
         return null;
     };
 
+    const moveToPage = (pageNumber: number) => {
+        handlePaginationChange(pageNumber);
+        return setPageNumber(pageNumber);
+    };
+
     return (
         <Fragment>
             <div className="paginator">
@@ -41,7 +49,7 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
                 {range.map((num, index) => {
                     return (<span
                         className={`paginator__page-number ${num === page ? 'paginator__page-number--selected' : ''}`}
-                        key={index} onClick={() => setPageNumber(num)}>{num}</span>)
+                        key={index} onClick={() => moveToPage(num)}>{num}</span>)
                 })}
 
                 {range.length > 1 ?
