@@ -1,5 +1,7 @@
 # Next JS Static starter-kit
 
+[Demo](https://nextjs-static-starter-kit.netlify.com/)
+
 ## Features
 
 - Latest Typescript
