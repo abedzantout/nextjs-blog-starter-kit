@@ -11,9 +11,9 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
 
     const [page, setPageNumber] = useState(1);
 
-    // useEffect(() => {
-    //     return setPageNumber(skip);
-    // }, [skip]);
+    useEffect(() => {
+        return setPageNumber(skip);
+    }, [skip]);
 
     const moveToNextPage = () => {
         if (page > 1) {

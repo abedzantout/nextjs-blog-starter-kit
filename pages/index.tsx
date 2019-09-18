@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './index.styles.css';
 import {NextPage} from 'next';
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 
 import {defaultMetaTags} from '../core/constants';
 import Layout from '../shared/components/layout';
@@ -27,13 +27,10 @@ const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key
 
 const IndexPage: NextPage = (props: Props) => {
 
-    const [posts, updatePosts]: [BlogPost[], Function] = useState(props.entries.length ? props.entries : []);
-
-    const [skip, updateSkip] = useState(!!props.skip ? props.skip : 0);
+    const [page, updatePage] = useState(!!props.page ? props.page : 1);
 
     const router = useRouter();
-    const page = !!props.page ? props.page : 1;
-    const entries = props.entries;
+    const entries = props.entries.length ? props.entries : [];
     const tags = props.tags || [];
     const total = props.total;
 
@@ -41,9 +38,9 @@ const IndexPage: NextPage = (props: Props) => {
     const rangeLimit = Math.ceil(total / limit);
     const range = calculateRange(rangeLimit);
 
-       useEffect(() => {
-           router.push({pathname: '/', query: {page: skip >= 0 ? skip : 0}});
-       }, [skip]);
+    useEffect(() => {
+        router.push({pathname: '/', query: {page: page}});
+    }, [page]);
 
     return (
         <Layout meta={defaultMetaTags}>
@@ -61,7 +58,7 @@ const IndexPage: NextPage = (props: Props) => {
                     </div>
                 </div>
                 <div className="pagination">
-                    <Paginator handlePaginationChange={(event) => updateSkip(event)} range={range} skip={2}/>
+                    <Paginator handlePaginationChange={(event) => updatePage(event)} range={range} skip={page}/>
                 </div>
             </div>
         </Layout>
@@ -69,13 +66,12 @@ const IndexPage: NextPage = (props: Props) => {
 };
 
 IndexPage.getInitialProps = async ({query}) => {
-
-    let page: number = 0;
-    if(parseInt(query.page + '') > 0) {
-        page = parseInt(query.page + '') - 1;
+    let page: number = 1;
+    if(query.page) {
+        page = parseInt(query.page + '');
     }
 
-    const {entries, total, skip, limit} = await getBlogPostEntries({limit: 1, skip: page});
+    const {entries, total, skip, limit} = await getBlogPostEntries({limit: 1, skip: page - 1});
     const allTags = entries.map(entry => entry.tags);
     const tags = Array.from(new Set(allTags.flat(1)));
     return {page, entries, tags, total, skip, limit};
