@@ -14,6 +14,7 @@
 git clone https://github.com/techhiveIO/nextjs-static-boilerplate.git my-project
 cd my-project
 rm -r .git
+cp .env.example .env
 yarn dev
 ####
 ```
