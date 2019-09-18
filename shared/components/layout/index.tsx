@@ -1,9 +1,10 @@
 import React, { FunctionComponent, Fragment, ReactNode } from 'react';
 import Meta from '../meta';
 import Header from '../header';
+import { Tag } from '../../../interfaces/tag';
 
 type Props = {
-    meta: any;
+    meta: Tag;
     children: ReactNode;
 }
 const Layout: FunctionComponent<Props> = ({meta, children}) => {
