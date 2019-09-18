@@ -39,7 +39,6 @@ const IndexPage: NextPage = (props: Props) => {
     const rangeLimit = Math.ceil(total / limit);
     const range = calculateRange(rangeLimit);
 
-    console.log(skip);
     return (
         <Layout meta={defaultMetaTags}>
             <div className="container">
