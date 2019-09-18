@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NextPage } from 'next';
 
 import { defaultMetaTags } from '../core/constants';
@@ -22,20 +22,23 @@ type Props = {
 
 const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key={index}/>));
 
-const handlePaginationChange = (event) => {
-    console.log(event)
-};
 
 const IndexPage: NextPage = (props: Props) => {
+
+    const [posts, updatePosts]: [BlogPost[], Function] = useState(props.entries.length ? props.entries : []);
+
+    const [skip, updateSkip] = useState(!!props.skip ? props.skip : 0);
+
     const page = !!props.page ? props.page : 1;
     const entries = props.entries;
     const tags = props.tags || [];
     const total = props.total;
-    const skip = props.skip;
+
     const limit = props.limit;
     const rangeLimit = Math.ceil(total / limit);
     const range = calculateRange(rangeLimit);
 
+    console.log(skip);
     return (
         <Layout meta={defaultMetaTags}>
             <div className="container">
@@ -43,11 +46,11 @@ const IndexPage: NextPage = (props: Props) => {
                     <div className="blogposts">
                         <h1>Latest posts</h1>
                         <div className="cards-deck">
-                            {cards(entries)}
+                            {cards(posts)}
                         </div>
                     </div>
                     <div className="pagination">
-                        <Paginator handlePaginationChange={handlePaginationChange} range={range} skip={skip}/>
+                        <Paginator handlePaginationChange={(event) => updateSkip(event)} range={range}/>
                     </div>
                 </div>
                 <div className="sidenav">
