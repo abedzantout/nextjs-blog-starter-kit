@@ -1,11 +1,13 @@
 // next.config.js
 // const withSourceMaps = require('@zeit/next-source-maps')();
 
+
+const withCSS = require('@zeit/next-css');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const { generateAllArticles } = require('./utils/helpers');
 
-module.exports = {
+const next_config = {
   webpack: config => {
     config.plugins = config.plugins || [];
 
@@ -41,5 +43,7 @@ module.exports = {
     };
 
     return Object.assign({}, pages, insights);
-  }
+  },
 };
+
+module.exports = withCSS({...next_config});

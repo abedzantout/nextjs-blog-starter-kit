@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { NextPage } from 'next';
+import React, {useState} from 'react';
+import './index.styles.css';
+import {NextPage} from 'next';
 
-import { defaultMetaTags } from '../core/constants';
+import {defaultMetaTags} from '../core/constants';
 import Layout from '../shared/components/layout';
-import { getBlogPostEntries } from '../core/contentful';
-import { BlogPost } from '../interfaces/post';
+import {getBlogPostEntries} from '../core/contentful';
+import {BlogPost} from '../interfaces/post';
 import Card from '../shared/components/card';
 import Paginator from '../shared/components/paginator';
 
@@ -38,41 +39,25 @@ const IndexPage: NextPage = (props: Props) => {
     const rangeLimit = Math.ceil(total / limit);
     const range = calculateRange(rangeLimit);
 
-    console.log(skip);
     return (
         <Layout meta={defaultMetaTags}>
             <div className="container">
-                <div className="body">
-                    <div className="blogposts">
-                        <h1>Latest posts</h1>
-                        <div className="cards-deck">
-                            {cards(posts)}
-                        </div>
-                    </div>
-                    <div className="pagination">
-                        <Paginator handlePaginationChange={(event) => updateSkip(event)} range={range}/>
+                <div className="blogposts">
+                    <h1 className="blogposts__header">Latest posts</h1>
+                    <div className="cards-deck">
+                        {cards(posts)}
                     </div>
                 </div>
                 <div className="sidenav">
-                    <h2>Choose your topic</h2>
+                    <h2 className="sidenav__header">Choose your topic</h2>
                     <div className="navigation-by-tag">
                         {tags.map((tag, index) => (<a className="tag" key={index}>{tag}</a>))}
                     </div>
                 </div>
+                <div className="pagination">
+                    <Paginator handlePaginationChange={(event) => updateSkip(event)} range={range}/>
+                </div>
             </div>
-            <style jsx>
-                {`
-                    .cards-deck { display: grid; grid-column-gap: 1rem; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: auto; rid-row-gap: 1rem;};
-                    .side-nav { height: 50%; };
-                    .container {display: grid; grid-template-columns: 3fr 1fr;};
-                    .sidenav { box-shadow: 0 20px 20px 0 rgba(0,0,0,0.07); padding: 1rem 2rem; };
-                    .sidenav h2 { margin: 1rem 0; };
-                    .sidenav .navigation-by-tag { display: flex; flex-flow: column wrap; };
-                    .sidenav .navigation-by-tag .tag { margin: 1rem 0; text-transform: capitalize; };
-                    .sidenav .navigation-by-tag .tag:hover { cursor: pointer; };
-                `
-                }
-            </style>
         </Layout>
     )
 };

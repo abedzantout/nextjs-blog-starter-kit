@@ -37,6 +37,7 @@
   "homepage": "https://github.com/techhiveIO/nextjs-static-boilerplate#readme",
   "pre-commit": "pretty-quick --staged",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "contentful": "~7.9.1",
     "dotenv": "~8.1.0",
     "dotenv-webpack": "^1.7.0",
