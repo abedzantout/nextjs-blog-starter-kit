@@ -38,19 +38,25 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
         return setPageNumber(pageNumber);
     };
 
+    const renderPageIndicators = (num, index) => (
+        <span
+            className={`paginator__page-number ${num === page ? 'paginator__page-number--selected' : ''}`}
+            key={index} onClick={() => moveToPage(num)}>
+            {num}
+        </span>
+    );
+
     return (
         <Fragment>
             <div className="paginator">
                 {range.length > 1 ?
                     <button className="paginator__button"
                             onClick={moveToNextPage}>
-                        <span className="paginator__button__indicator left">{'<'}</span> Previous</button> : null}
+                        <span className="paginator__button__indicator left">
+                            {'<'}</span> Previous
+                    </button> : null}
 
-                {range.map((num, index) => {
-                    return (<span
-                        className={`paginator__page-number ${num === page ? 'paginator__page-number--selected' : ''}`}
-                        key={index} onClick={() => moveToPage(num)}>{num}</span>)
-                })}
+                {range.map(renderPageIndicators)}
 
                 {range.length > 1 ?
                     <button className="paginator__button"

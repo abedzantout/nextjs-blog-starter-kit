@@ -26,9 +26,6 @@ const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key
 
 
 const IndexPage: NextPage = (props: Props) => {
-
-    const [page, updatePage] = useState(!!props.page ? props.page : 1);
-
     const router = useRouter();
     const entries = props.entries.length ? props.entries : [];
     const tags = props.tags || [];
@@ -37,6 +34,8 @@ const IndexPage: NextPage = (props: Props) => {
     const limit = props.limit;
     const rangeLimit = Math.ceil(total / limit);
     const range = calculateRange(rangeLimit);
+
+    const [page, updatePage] = useState(!!props.page ? props.page : 1);
 
     useEffect(() => {
         router.push({pathname: '/', query: {page: page}});
