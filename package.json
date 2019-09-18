@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-static-boilerplate",
+  "name": "nextjs-static-starter-kit",
   "version": "1.0.0",
   "description": "NextJS Boilerplate with static export",
   "main": "server.js",
