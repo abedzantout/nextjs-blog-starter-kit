@@ -1,4 +1,5 @@
-import React, { FunctionComponent, Fragment, useState } from 'react';
+import React, {FunctionComponent, Fragment, useState} from 'react';
+import './styles.css';
 
 type Props = {
     skip?: number;
@@ -16,22 +17,23 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
         <Fragment>
             <div className="paginator">
                 {range.length > 1 ?
-                    <span className="previous"
-                          onClick={() => page <= 1 ? null : setPageNumber(page - 1)}>{'<'}</span> : null}
+                    <button className="paginator__button"
+                            onClick={() => page <= 1 ? null : setPageNumber(page - 1)}>
+                        <span className="paginator__button__indicator left">{'<'}</span> Previous</button> : null}
+
                 {range.map((num, index) => {
-                    return (<span className={`page-number ${num === page ? 'selected' : ''}`}
-                                  key={index} onClick={() => setPageNumber(num)}>{num}</span>)
+                    return (<span
+                        className={`paginator__page-number ${num === page ? 'paginator__page-number--selected' : ''}`}
+                        key={index} onClick={() => setPageNumber(num)}>{num}</span>)
                 })}
-                {range.length > 1 ? <span className="next"
-                                          onClick={() => page >= range[range.length - 1] ? null
-                                              : setPageNumber(page + 1)}>{'>'}</span> : null}
+
+                {range.length > 1 ?
+                    <button className="paginator__button"
+                            onClick={() => page >= range[range.length - 1] ? null
+                                : setPageNumber(page + 1)}>
+                        Next <span className="paginator__button__indicator right">{'>'}</span>
+                    </button> : null}
             </div>
-            <style jsx>{`
-                .paginator {display: flex; flex-flow: row nowrap; justify-content: center;};
-                 span { margin: 0 1rem; };
-                 span:hover { cursor: pointer };
-                 .page-number.selected {};
-            `}</style>
         </Fragment>
     )
 };
