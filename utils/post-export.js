@@ -1,3 +1,3 @@
 require('dotenv').config();
 const { generateSitemap } = require('./sitemap');
-generateSitemap('https://www.techhive.io', './out/');
+generateSitemap(process.env.DOMAIN_NAME, './out/');
