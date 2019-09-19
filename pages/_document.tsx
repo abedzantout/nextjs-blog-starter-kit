@@ -36,14 +36,17 @@ export default class extends Document<Props> {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
                 {/* Global Site Tag (gtag.js) - Google Analytics */}
-                <Fragment>
-                    <script
-                        async
-                        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-                    />
-                    {/* We call the function above to inject the contents of the script tag */}
-                    <script dangerouslySetInnerHTML={this.setGoogleTags(GA_TRACKING_ID)}/>
-                </Fragment>
+                {/* We only want to add the scripts if in production */}
+                {isProduction && (
+                    <Fragment>
+                        <script
+                            async
+                            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                        />
+                        {/* We call the function above to inject the contents of the script tag */}
+                        <script dangerouslySetInnerHTML={this.setGoogleTags(GA_TRACKING_ID)}/>
+                    </Fragment>
+                )}
 
             </Head>
             <body>
