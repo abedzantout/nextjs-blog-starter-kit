@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
+    "postexport": "node utils/post-export.js",
     "type-check": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:write": "prettier \"**/*.{ts,js,json,md,scss}\" --write",
