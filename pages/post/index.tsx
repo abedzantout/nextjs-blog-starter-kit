@@ -1,13 +1,13 @@
 import { NextPage } from 'next';
 import React from 'react';
-import './post.styles.css';
+import './styles.css';
 import ReactMarkdown from 'react-markdown';
 
-import Layout from '../shared/components/layout';
-import { getPostBySlug } from '../core/contentful';
-import { defaultMetaTags } from '../core/constants';
+import Layout from '../../shared/components/layout';
+import { getPostBySlug } from '../../core/contentful';
+import { defaultMetaTags } from '../../core/constants';
 
-import { BlogPost } from '../interfaces/post';
+import { BlogPost } from '../../interfaces/post';
 
 
 type Props = {

@@ -1,5 +1,7 @@
 .paginator {
     display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .paginator__page-number {
