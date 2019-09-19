@@ -1,7 +1,7 @@
 import { ContentfulCollection, createClient } from 'contentful';
 
 export const CONTENT_TYPE_BLOGPOST = 'blogPost';
-export const CONTENT_TYPE_PERSON = 'person';
+export const CONTENT_TYPE_PERSON = 'author';
 export const CONTENT_TYPE_TAGS = 'tag';
 
 const Space = process.env.CONTENTFUL_SPACE;

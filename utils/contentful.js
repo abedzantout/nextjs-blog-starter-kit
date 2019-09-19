@@ -7,7 +7,7 @@ const authorFields = [
   },
   {
     id: 'title',
-    name: 'Title',
+    name: 'Job Title',
     type: 'Symbol',
     required: true
   },
@@ -33,7 +33,7 @@ const authorFields = [
     id: 'twitter',
     name: 'Twitter',
     type: 'Symbol',
-    required: true
+    required: false
   }
 ];
 
@@ -53,7 +53,8 @@ const blogFields = [
   {
     id: 'heroImage',
     name: 'Hero Image',
-    type: 'Object',
+    type: 'Link',
+    linkType: 'Asset',
     required: true
   },
   {
@@ -77,18 +78,21 @@ const blogFields = [
     validations: [{ linkContentType: ['author'] }]
   },
   {
-    id: 'publishedDate',
-    name: 'Published Date',
+    id: 'publishDate',
+    name: 'Publish Date',
     type: 'Date',
     required: true
   },
   {
     id: 'tags',
     name: 'Tags',
-    type: 'Link',
-    required: true,
-    linkType: 'Array',
-    validations: [{ linkContentType: ['tag'] }]
+    type: 'Array',
+    required: false,
+    items: {
+      type: 'Link',
+      linkType: 'Entry',
+      validations: [{ linkContentType: ['tag'] }]
+    }
   }
 ];
 
@@ -104,7 +108,8 @@ const tagFields = [
 module.exports = function(migration, context) {
   const tag = migration.createContentType('tag', {
     name: 'Tag',
-    description: 'tag'
+    description: 'tag',
+    displayField: 'name'
   });
 
   tagFields.forEach(field => {
@@ -117,7 +122,8 @@ module.exports = function(migration, context) {
 
   const author = migration.createContentType('author', {
     name: 'Author',
-    description: 'Author of Blogpost'
+    description: 'Author of Blog post',
+    displayField: 'name'
   });
 
   authorFields.forEach(field => {
@@ -128,25 +134,24 @@ module.exports = function(migration, context) {
     });
   });
   const blog = migration.createContentType('blogPost', {
-    name: 'BlogPost',
-    description: 'Blog Post'
+    name: 'Blog Post',
+    description: 'Blog Post',
+    displayField: 'title'
   });
 
   blogFields.forEach(field => {
-    if (!field.linkType) {
-      blog.createField(field.id, {
-        name: field.name,
-        type: field.type,
-        required: field.required
-      });
-    } else {
-      blog.createField(field.id, {
-        name: field.name,
-        type: field.type,
-        linkType: field.linkType,
-        required: field.required,
-        validations: field.validations
-      });
+    const options = {
+      name: field.name,
+      type: field.type,
+      required: field.required,
+      validations: field.validations ? [...field.validations] : []
+    };
+    if (field.linkType) {
+      options.linkType = field.linkType;
     }
+    if (field.items) {
+      options.items = field.items;
+    }
+    blog.createField(field.id, options);
   });
 };
