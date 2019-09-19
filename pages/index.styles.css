@@ -26,6 +26,15 @@
     border: 1px solid #ececec;
 }
 
+.navigation-by-tag {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.navigation-by-tag .tag {
+    margin: 0.5rem 0;
+}
+
 .container .tag {
     font-size: 21px;
     color: #16498A;

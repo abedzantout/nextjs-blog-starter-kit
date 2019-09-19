@@ -1,6 +1,6 @@
 # List of projects built with help of Nextjs, Netlify and NextJs Static Starter Kit
 
-* [Techhive.IO Inisghts](https://www.techhive.io/our-insights/) - Techhive.IO Insights and Blog.
+- [Techhive.IO Inisghts](https://www.techhive.io/our-insights/) - Techhive.IO Insights and Blog.
 
 ## How to appear on this list
 

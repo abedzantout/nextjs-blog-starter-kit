@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.styles.css';
-import {NextPage} from 'next';
-import {useRouter} from 'next/router'
+import { NextPage } from 'next';
+import { useRouter } from 'next/router'
 
-import {defaultMetaTags} from '../core/constants';
+import { defaultMetaTags } from '../core/constants';
 import Layout from '../shared/components/layout';
-import {getBlogPostEntries} from '../core/contentful';
-import {BlogPost} from '../interfaces/post';
+import { getAllTags, getBlogPostEntries } from '../core/contentful';
+import { BlogPost } from '../interfaces/post';
 import Card from '../shared/components/card';
 import Paginator from '../shared/components/paginator';
 
@@ -14,7 +14,7 @@ const calculateRange = (length) => Array.from({length}, (v, k) => k + 1);
 
 type Props = {
     entries: BlogPost[];
-    tags: string[];
+    tags: { id: string, name: string }[];
     url: any;
     total: number;
     skip: number;
@@ -23,7 +23,6 @@ type Props = {
 }
 
 const cards = (entries) => entries.map((entry, index) => (<Card info={entry} key={index}/>));
-
 
 const IndexPage: NextPage = (props: Props) => {
     const router = useRouter();
@@ -36,10 +35,11 @@ const IndexPage: NextPage = (props: Props) => {
     const range = calculateRange(rangeLimit);
 
     const [page, updatePage] = useState(!!props.page ? props.page : 1);
+    const [tag, updateTag] = useState('');
 
     useEffect(() => {
-        router.push({pathname: '/', query: {page: page}});
-    }, [page]);
+        void router.push({pathname: '/', query: {page: page, tag: tag}});
+    }, [page, tag]);
 
     return (
         <Layout meta={defaultMetaTags}>
@@ -53,7 +53,11 @@ const IndexPage: NextPage = (props: Props) => {
                 <div className="sidenav">
                     <h2 className="sidenav__header">Choose your topic</h2>
                     <div className="navigation-by-tag">
-                        {tags.map((tag, index) => (<a className="tag" key={index}>{tag}</a>))}
+                        {tags.map((tag, index) => (
+                            <a className="tag" onClick={() => {
+                                updatePage(1); // resets page to one
+                                updateTag(tag.id); // fetch posts by tag
+                            }} key={index}>{tag.name}</a>))}
                     </div>
                 </div>
                 <div className="pagination">
@@ -66,14 +70,22 @@ const IndexPage: NextPage = (props: Props) => {
 
 IndexPage.getInitialProps = async ({query}) => {
     let page: number = 1;
-    if(query.page) {
+
+    if (query.page) {
         page = parseInt(query.page + '');
     }
 
-    const {entries, total, skip, limit} = await getBlogPostEntries({limit: 1, skip: page - 1});
-    const allTags = entries.map(entry => entry.tags);
-    const tags = Array.from(new Set(allTags.flat(1)));
-    return {page, entries, tags, total, skip, limit};
+
+    const {entries, total, skip, limit} = await getBlogPostEntries({
+        tag: query.tag ? query.tag.toString() : '',
+        skip: page - 1,
+        limit: 1,
+    });
+
+    // TODO: need to move outside
+    const {tags} = await getAllTags();
+
+    return {page, tags, entries, total, skip, limit};
 };
 
 export default IndexPage;
