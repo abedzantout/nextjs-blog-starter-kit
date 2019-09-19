@@ -31,6 +31,7 @@ export default class extends Document<Props> {
         return (
             <html lang={language}>
             <Head>
+                {/*Global meta tags*/}
                 <meta httpEquiv="x-ua-compatible" content="ie=edge"/>
                 <base href="/"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>

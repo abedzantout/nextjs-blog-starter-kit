@@ -15,7 +15,7 @@
     "format:test": "prettier \"**/*.{ts,js,json,md,scss}\" --list-different",
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "release": "standard-version && git push --follow-tags origin master",
-    "contentful:populate": "contentful space migration --space-id rafyaxjobqzn utils/contentful.js --yes"
+    "contentful:populate": "contentful space migration --space-id <SPACE_KEY> utils/contentful.js --yes"
   },
   "repository": {
     "type": "git",
