@@ -53,6 +53,10 @@ const IndexPage: NextPage = (props: Props) => {
                 <div className="sidenav">
                     <h2 className="sidenav__header">Choose your topic</h2>
                     <div className="navigation-by-tag">
+                        <a className="tag" onClick={() => {
+                            updatePage(1); // resets page to one
+                            updateTag(''); // Resets all posts
+                        }}>All</a>
                         {tags.map((tag, index) => (
                             <a className="tag" onClick={() => {
                                 updatePage(1); // resets page to one
