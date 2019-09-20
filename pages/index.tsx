@@ -4,11 +4,11 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router'
 
 import { defaultMetaTags } from '../core/constants';
-import Layout from '../shared/components/layout';
+import Layout from '../shared/components/layout/layout.component';
 import { getAllTags, getBlogPostEntries } from '../core/contentful';
 import { BlogPost } from '../interfaces/post';
-import Card from '../shared/components/card';
-import Paginator from '../shared/components/paginator';
+import Card from '../shared/components/card/card.component';
+import Paginator from '../shared/components/paginator/paginator.component';
 
 const calculateRange = (length) => Array.from({length}, (v, k) => k + 1);
 
