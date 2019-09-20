@@ -1,4 +1,4 @@
-export enum pageType {
+export enum PageType {
   website = 'website',
   article = 'article'
 }
@@ -14,8 +14,8 @@ export type Tag = {
   title: string;
   author?: string;
   description: string;
-  type: pageType;
-  og_type?: pageType;
+  type: PageType;
+  og_type?: PageType;
   image: string;
   robots: string;
   og_title?: string;

@@ -1,4 +1,4 @@
-import { pageType, RobotsContent, Tag } from '../interfaces/tag';
+import { PageType, RobotsContent, Tag } from '../interfaces/tag';
 import { concatenateStrings } from '../shared/helpers/helper';
 
 export const defaultMetaTags: Tag = {
@@ -7,5 +7,5 @@ export const defaultMetaTags: Tag = {
   image: 'https://www.techhive.io/image.png',
   robots: concatenateStrings(RobotsContent.index, RobotsContent.follow),
   title: 'Techhive.IO',
-  type: pageType.website
+  type: PageType.website
 };
