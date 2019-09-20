@@ -6,7 +6,7 @@ const Footer: FunctionComponent<Props> = ({}) => {
     return (
         <footer>
             <span className="dev-team">
-                Created with ♥ by TechHive.IO 2019.
+                Created with <span className="dev-team__love"> ♥ </span> by TechHive.IO 2019.
             </span>
         </footer>
     );

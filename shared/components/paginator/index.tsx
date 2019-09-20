@@ -53,7 +53,7 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
                     <button className="paginator__button"
                             onClick={moveToNextPage}>
                         <span className="paginator__button__indicator left">
-                            {'<'}</span> Previous
+                            {'<'}</span> <span className="paginator__button__label"> Previous </span>
                     </button> : null}
 
                 {range.map(renderPageIndicators)}
@@ -61,7 +61,7 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
                 {range.length > 1 ?
                     <button className="paginator__button"
                             onClick={moveToPreviousPage}>
-                        Next <span className="paginator__button__indicator right">{'>'}</span>
+                        <span className="paginator__button__label"> Next</span> <span className="paginator__button__indicator right">{'>'}</span>
                     </button> : null}
             </div>
         </Fragment>

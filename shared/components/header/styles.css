@@ -1,7 +1,7 @@
 .nav {
     display: flex;
 
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 1rem;
 
     background-color: #ffffff;
     border-bottom: 1px solid #ececec;
@@ -25,4 +25,14 @@
     color: #16498A;
     font-weight: normal;
     letter-spacing: 2px;
+}
+
+@media (min-width: 991px) {
+
+}
+
+@media (min-width: 1200px) {
+    .nav {
+        padding: 1.5rem 4rem;
+    }
 }
