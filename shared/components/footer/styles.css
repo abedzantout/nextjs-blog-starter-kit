@@ -12,6 +12,12 @@ footer .dev-team {
     color: red;
 }
 
+@media (min-width: 768px) {
+    footer {
+        padding: 1rem 3rem;
+    }
+}
+
 @media (min-width: 1200px) {
     footer {
         padding: 1rem 5.5rem;
