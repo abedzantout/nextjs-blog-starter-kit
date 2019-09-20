@@ -1,5 +1,6 @@
 .card {
-    height: 425px;
+    /*height: 425px;*/
+    height: auto;
     width: 340px;
 
     background-color: #ffffff;
@@ -41,7 +42,7 @@
 }
 
 .card__footer {
-    padding: 0rem 1rem;
+    padding: 0 1rem;
 }
 
 .card__action {

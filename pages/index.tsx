@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import './index.styles.css';
+import React, {FunctionComponent, useEffect, useState} from 'react';
+import './home.css';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router'
 
@@ -50,23 +50,23 @@ const IndexPage: NextPage = (props: Props) => {
                         {cards(entries)}
                     </div>
                 </div>
-                <div className="sidenav">
-                    <h2 className="sidenav__header">Choose your topic</h2>
-                    <div className="navigation-by-tag">
-                        <a className="tag" onClick={() => {
-                            updatePage(1); // resets page to one
-                            updateTag(''); // Resets all posts
-                        }}>All</a>
-                        {tags.map((tag, index) => (
-                            <a className="tag" onClick={() => {
-                                updatePage(1); // resets page to one
-                                updateTag(tag.id); // fetch posts by tag
-                            }} key={index}>{tag.name}</a>))}
-                    </div>
-                </div>
-                <div className="pagination">
-                    <Paginator handlePaginationChange={(event) => updatePage(event)} range={range} skip={page}/>
-                </div>
+                {/*<div className="sidenav">*/}
+                {/*    <h2 className="sidenav__header">Choose your topic</h2>*/}
+                {/*    <div className="navigation-by-tag">*/}
+                {/*        <a className="tag" onClick={() => {*/}
+                {/*            updatePage(1); // resets page to one*/}
+                {/*            updateTag(''); // Resets all posts*/}
+                {/*        }}>All</a>*/}
+                {/*        {tags.map((tag, index) => (*/}
+                {/*            <a className="tag" onClick={() => {*/}
+                {/*                updatePage(1); // resets page to one*/}
+                {/*                updateTag(tag.id); // fetch posts by tag*/}
+                {/*            }} key={index}>{tag.name}</a>))}*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                {/*<div className="pagination">*/}
+                {/*    <Paginator handlePaginationChange={(event) => updatePage(event)} range={range} skip={page}/>*/}
+                {/*</div>*/}
             </div>
         </Layout>
     )
