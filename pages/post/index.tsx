@@ -3,37 +3,40 @@ import React from 'react';
 import './styles.css';
 import ReactMarkdown from 'react-markdown';
 
-import Layout from '../../shared/components/layout';
+import Layout from '../../shared/components/layout/layout.component';
 import { getPostBySlug } from '../../core/contentful';
 import { defaultMetaTags } from '../../core/constants';
 
 import { BlogPost } from '../../interfaces/post';
 
-
 type Props = {
     article: BlogPost;
 };
 const PostPage: NextPage = (props: Props) => {
+    console.log(props.article)
     return (
         <Layout meta={defaultMetaTags}>
-            <div className="post-container">
+            <div className="post-container" id="post-container">
                 <div className="post-header">
                     <h1>{props.article.title}</h1>
                     <div className="author">
                         <p>Written by {props.article.author.name}</p>
                     </div>
                 </div>
-                <ReactMarkdown className="markdown" source={props.article.body}/>
+                <ReactMarkdown className="markdown" source={props.article.body} />
+
             </div>
         </Layout>
     );
 };
 
-PostPage.getInitialProps = async ({query}) => {
 
-    const {post} = query;
+PostPage.getInitialProps = async ({ query }) => {
+
+    const { post } = query;
     const article = await getPostBySlug(post);
-    return {article};
+
+    return { article };
 };
 
 export default PostPage;

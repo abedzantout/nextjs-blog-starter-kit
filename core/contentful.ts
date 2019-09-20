@@ -90,32 +90,34 @@ export async function getBlogPostEntries(
   }
 }
 
-export function getPostBySlug(slug) {
-  return fetchPostBySlug(slug)
-    .then((entries: ContentfulCollection<any>) => {
-      if (entries.items.length) {
-        const content: { sys: any; fields: any } = entries.items[0];
+export async function getPostBySlug(slug) {
+  try {
+    const content: any = await fetchPostBySlug(slug);
 
-        const author = {
-          name: content.fields.author.fields.name,
-          title: content.fields.author.fields.title,
-          slug: content.fields.author.fields.slug,
-          image: content.fields.author.fields.image.fields.file.url
-        };
+    const entry: { sys: any; fields: any } = content.items[0];
 
-        return {
-          id: content.sys.id,
-          slug: content.fields.slug,
-          body: content.fields.body,
-          title: content.fields.title,
-          description: content.fields.description,
-          heroImage: { url: content.fields.heroImage.fields.file.url },
-          author: { ...author, id: content.fields.author.sys.id },
-          publishedAt: content.fields.publishDate
-            ? new Date(content.fields.publishDate)
-            : new Date(content.sys.createdAt)
-        };
-      }
-    })
-    .catch(err => null);
+    const author = {
+      name: entry.fields.author.fields.name,
+      title: entry.fields.author.fields.title,
+      company: entry.fields.author.fields.company,
+      shortBio: entry.fields.author.fields.shortBio
+    };
+
+    const article = {
+      id: entry.sys.id,
+      slug: entry.fields.slug,
+      body: entry.fields.body,
+      title: entry.fields.title,
+      description: entry.fields.description,
+      heroImage: { url: entry.fields.heroImage.fields.file.url },
+      author: { ...author, id: entry.fields.author.sys.id },
+      publishedAt: entry.fields.publishDate
+        ? new Date(entry.fields.publishDate)
+        : new Date(entry.sys.createdAt)
+    };
+
+    return article;
+  } catch (error) {
+    console.error(error);
+  }
 }
