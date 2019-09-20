@@ -57,7 +57,7 @@ const IndexPage: NextPage = (props: Props) => {
                     </div>
                 </div>
                 <div className="sidenav">
-                    <TagFilters tags={tags} updatePage={handleTagChosen}/>
+                    <TagFilters tags={tags} updatePage={handleTagChosen} selectedTagId={tag}/>
                 </div>
                 <div className="pagination">
                     <Paginator handlePaginationChange={(event) => updatePage(event)} range={range} skip={page}/>
