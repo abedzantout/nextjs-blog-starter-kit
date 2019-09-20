@@ -1,11 +1,10 @@
 .card {
-    /*height: 425px;*/
-    height: auto;
-    width: 340px;
+    display: flex;
+    flex-direction: column;
 
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 4px;
-    border: 1px solid #ececec;
+    border: 1px solid #e5e5e5;
 
     overflow: hidden;
 
@@ -17,12 +16,23 @@
 }
 
 .card__header {
-    height: 50%;
+    flex-basis: 40%;
+    flex-grow: 1.5;
+
     background-size: cover !important;
 }
 
 .card__body {
-    padding: 1rem;
+    flex-basis: 40%;
+    flex-shrink: 0.8;
+
+    padding: 0.25rem 1rem;
+}
+
+.card__footer {
+    flex-basis: 8%;
+
+    padding: 0.25rem 1rem;
 }
 
 .card__title {
@@ -39,10 +49,6 @@
     color: #12284c;
 
     opacity: .8;
-}
-
-.card__footer {
-    padding: 0 1rem;
 }
 
 .card__action {

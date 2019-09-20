@@ -18,7 +18,6 @@ const Card: FunctionComponent<Props> = ({info}) => {
     };
 
     return (
-        <Fragment>
             <div className="card">
                 <div className="card__header" style={cardBGStyles}/>
                 <div className="card__body">
@@ -32,7 +31,6 @@ const Card: FunctionComponent<Props> = ({info}) => {
                     </Link>
                 </div>
             </div>
-        </Fragment>
     );
 };
 
