@@ -1,14 +1,15 @@
 import React, {FunctionComponent, useEffect, useState} from 'react';
 import './home.css';
-import { NextPage } from 'next';
-import { useRouter } from 'next/router'
+import {NextPage} from 'next';
+import {useRouter} from 'next/router'
 
-import { defaultMetaTags } from '../core/constants';
+import {defaultMetaTags} from '../core/constants';
 import Layout from '../shared/components/layout/layout.component';
-import { getAllTags, getBlogPostEntries } from '../core/contentful';
-import { BlogPost } from '../interfaces/post';
+import {getAllTags, getBlogPostEntries} from '../core/contentful';
+import {BlogPost} from '../interfaces/post';
 import Card from '../shared/components/card/card.component';
 import Paginator from '../shared/components/paginator/paginator.component';
+import TagFilters from "../shared/components/tag-filters/tag-filters.component";
 
 const calculateRange = (length) => Array.from({length}, (v, k) => k + 1);
 
@@ -41,6 +42,11 @@ const IndexPage: NextPage = (props: Props) => {
         void router.push({pathname: '/', query: {page: page, tag: tag}});
     }, [page, tag]);
 
+    const handleTagChosen = (tag) => {
+        updatePage(1);
+        updateTag(tag);
+    };
+
     return (
         <Layout meta={defaultMetaTags}>
             <div className="container">
@@ -51,18 +57,7 @@ const IndexPage: NextPage = (props: Props) => {
                     </div>
                 </div>
                 <div className="sidenav">
-                    <h2 className="sidenav__header">Choose your topic</h2>
-                    <div className="navigation-by-tag">
-                        <a className="tag" onClick={() => {
-                            updatePage(1); // resets page to one
-                            updateTag(''); // Resets all posts
-                        }}>All</a>
-                        {tags.map((tag, index) => (
-                            <a className="tag" onClick={() => {
-                                updatePage(1); // resets page to one
-                                updateTag(tag.id); // fetch posts by tag
-                            }} key={index}>{tag.name}</a>))}
-                    </div>
+                    <TagFilters tags={tags} updatePage={handleTagChosen}/>
                 </div>
                 <div className="pagination">
                     <Paginator handlePaginationChange={(event) => updatePage(event)} range={range} skip={page}/>
