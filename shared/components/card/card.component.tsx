@@ -1,5 +1,5 @@
 import React, {FunctionComponent, Fragment} from 'react';
-import './styles.css';
+import './card.component.css';
 import Link from 'next/link';
 
 type Props = {

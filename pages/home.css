@@ -49,18 +49,32 @@
 
 .container .cards-deck {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 340px);
+    grid-template-columns: repeat(auto-fill, 100%);
     grid-auto-rows: 450px;
 
     grid-gap: 20px;
 }
 
-@media (min-width: 991px) {
+@media (min-width: 768px) {
+    .container {
+        grid-template-rows: auto 12rem auto;
+    }
 
+    .container .cards-deck {
+        grid-template-columns: repeat(auto-fill, 320px);
+    }
+}
+
+@media (min-width: 991px) {
+    .container {
+        grid-template-rows: auto 33rem auto;
+    }
 }
 
 @media (min-width: 1200px) {
     .container {
+        grid-template-rows: auto 8rem auto;
+
         margin: 0 3rem;
     }
 
