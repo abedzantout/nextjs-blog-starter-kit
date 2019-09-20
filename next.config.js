@@ -1,5 +1,4 @@
 // next.config.js
-// const withSourceMaps = require('@zeit/next-source-maps')();
 
 const withCSS = require('@zeit/next-css');
 const path = require('path');
