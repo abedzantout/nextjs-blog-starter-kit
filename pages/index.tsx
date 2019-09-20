@@ -50,23 +50,23 @@ const IndexPage: NextPage = (props: Props) => {
                         {cards(entries)}
                     </div>
                 </div>
-                {/*<div className="sidenav">*/}
-                {/*    <h2 className="sidenav__header">Choose your topic</h2>*/}
-                {/*    <div className="navigation-by-tag">*/}
-                {/*        <a className="tag" onClick={() => {*/}
-                {/*            updatePage(1); // resets page to one*/}
-                {/*            updateTag(''); // Resets all posts*/}
-                {/*        }}>All</a>*/}
-                {/*        {tags.map((tag, index) => (*/}
-                {/*            <a className="tag" onClick={() => {*/}
-                {/*                updatePage(1); // resets page to one*/}
-                {/*                updateTag(tag.id); // fetch posts by tag*/}
-                {/*            }} key={index}>{tag.name}</a>))}*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="pagination">*/}
-                {/*    <Paginator handlePaginationChange={(event) => updatePage(event)} range={range} skip={page}/>*/}
-                {/*</div>*/}
+                <div className="sidenav">
+                    <h2 className="sidenav__header">Choose your topic</h2>
+                    <div className="navigation-by-tag">
+                        <a className="tag" onClick={() => {
+                            updatePage(1); // resets page to one
+                            updateTag(''); // Resets all posts
+                        }}>All</a>
+                        {tags.map((tag, index) => (
+                            <a className="tag" onClick={() => {
+                                updatePage(1); // resets page to one
+                                updateTag(tag.id); // fetch posts by tag
+                            }} key={index}>{tag.name}</a>))}
+                    </div>
+                </div>
+                <div className="pagination">
+                    <Paginator handlePaginationChange={(event) => updatePage(event)} range={range} skip={page}/>
+                </div>
             </div>
         </Layout>
     )
@@ -83,7 +83,7 @@ IndexPage.getInitialProps = async ({query}) => {
     const {entries, total, skip, limit} = await getBlogPostEntries({
         tag: query.tag ? query.tag.toString() : '',
         skip: page - 1,
-        limit: 3,
+        limit: 1,
     });
 
     // TODO: need to move outside
