@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import './styles.css';
+import React, {FunctionComponent} from 'react';
+import './header.component.css';
 import Link from 'next/link';
 
 type Props = {}

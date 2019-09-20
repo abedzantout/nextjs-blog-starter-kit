@@ -1,12 +1,12 @@
 import React, {FunctionComponent, Fragment, useState, useEffect} from 'react';
-import './styles.css';
+import './paginator.component.css';
 
 type Props = {
     skip?: number;
     range: number[];
     handlePaginationChange: Function;
 }
-const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChange}) => {
+const PaginatorComponent: FunctionComponent<Props> = ({skip, range, handlePaginationChange}) => {
     skip = !!skip ? skip : 0;
 
     const [page, setPageNumber] = useState(1);
@@ -61,11 +61,12 @@ const Paginator: FunctionComponent<Props> = ({skip, range, handlePaginationChang
                 {range.length > 1 ?
                     <button className="paginator__button"
                             onClick={moveToPreviousPage}>
-                        <span className="paginator__button__label"> Next</span> <span className="paginator__button__indicator right">{'>'}</span>
+                        <span className="paginator__button__label"> Next</span> <span
+                        className="paginator__button__indicator right">{'>'}</span>
                     </button> : null}
             </div>
         </Fragment>
     )
 };
 
-export default Paginator;
+export default PaginatorComponent;
