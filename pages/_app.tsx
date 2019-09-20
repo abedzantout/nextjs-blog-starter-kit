@@ -2,8 +2,26 @@ import App from 'next/app';
 import React from 'react';
 import Router from 'next/router';
 
-import { trackPageView } from '../core/gtag';
+import './styles.css';
+
+import {trackPageView} from '../core/gtag';
+import Footer from "../shared/components/footer";
+import Header from "../shared/components/header";
 
 Router.events.on('routeChangeComplete', url => trackPageView(url));
 
-export default App
+class MyApp extends App {
+    render() {
+        const {Component, pageProps} = this.props;
+
+        return (
+            <React.Fragment>
+                <Header/>
+                <Component {...pageProps} />
+                <Footer/>
+            </React.Fragment>
+        );
+    }
+}
+
+export default MyApp;

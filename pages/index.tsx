@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import './index.styles.css';
+import React, {FunctionComponent, useEffect, useState} from 'react';
+import './home.css';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router'
 

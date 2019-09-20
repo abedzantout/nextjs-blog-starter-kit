@@ -63,3 +63,14 @@
 .paginator__button__indicator.right {
     margin-left: 1rem;
 }
+
+.paginator__button__label {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .paginator__button__label {
+        display: inline-block;
+    }
+
+}

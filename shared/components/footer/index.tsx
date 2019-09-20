@@ -1,10 +1,13 @@
-import React, { FunctionComponent } from 'react';
+import React, {FunctionComponent} from 'react';
+import './styles.css';
 
 type Props = {}
 const Footer: FunctionComponent<Props> = ({}) => {
     return (
         <footer>
-            Created with ♥ by Techhive.IO 2019.
+            <span className="dev-team">
+                Created with <span className="dev-team__love"> ♥ </span> by TechHive.IO 2019.
+            </span>
         </footer>
     );
 };
