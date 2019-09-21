@@ -1,17 +1,17 @@
 import React, {FunctionComponent, Fragment, ReactNode} from 'react';
 import './layout.component.css';
-import {Tag} from '../../../interfaces/tag';
+import {MetaTags} from '../../../interfaces/meta-tags';
 import Meta from '../meta';
 
 type Props = {
-    meta: Tag;
+    metaTags: MetaTags;
     children: ReactNode;
 }
-const Layout: FunctionComponent<Props> = ({meta, children}) => {
+const Layout: FunctionComponent<Props> = ({metaTags, children}) => {
 
     return (
         <Fragment>
-            <Meta tag={meta}/>
+            <Meta tags={metaTags}/>
             <div className="layout">
                 <main>
                     {children}

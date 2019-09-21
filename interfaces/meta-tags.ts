@@ -10,7 +10,7 @@ export enum RobotsContent {
   no_index = 'noindex'
 }
 
-export type Tag = {
+export type MetaTags = {
   title: string;
   author?: string;
   description: string;

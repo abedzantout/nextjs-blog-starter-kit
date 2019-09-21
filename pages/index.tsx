@@ -48,7 +48,7 @@ const IndexPage: NextPage = (props: Props) => {
     };
 
     return (
-        <Layout meta={defaultMetaTags}>
+        <Layout metaTags={defaultMetaTags}>
             <div className="container">
                 <div className="blogposts">
                     <h1 className="blogposts__header">Latest posts</h1>

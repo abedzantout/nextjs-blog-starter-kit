@@ -5,17 +5,27 @@ import ReactMarkdown from 'react-markdown';
 
 import Layout from '../../shared/components/layout/layout.component';
 import { getPostBySlug } from '../../core/contentful';
-import { defaultMetaTags } from '../../core/constants';
 
 import { BlogPost } from '../../interfaces/post';
+import { MetaTags, PageType, RobotsContent } from '../../interfaces/meta-tags';
 
 type Props = {
     article: BlogPost;
 };
 const PostPage: NextPage = (props: Props) => {
-    console.log(props.article)
+
+    const postMetaTags: MetaTags = {
+        canonical: `${process.env.DOMAIN_PUBLIC}`,
+        description: `${props.article.description}`,
+        // contentful does not set the http or https before an image link, so we need to add it ourselves
+        image: `https:${props.article.heroImage.url}`,
+        robots: `${RobotsContent.follow},${RobotsContent.index}`,
+        title: `${props.article.title}`,
+        type: PageType.article,
+    };
+
     return (
-        <Layout meta={defaultMetaTags}>
+        <Layout metaTags={postMetaTags}>
             <div className="post-container" id="post-container">
                 <div className="post-header">
                     <h1>{props.article.title}</h1>
@@ -23,7 +33,7 @@ const PostPage: NextPage = (props: Props) => {
                         <p>Written by {props.article.author.name}</p>
                     </div>
                 </div>
-                <ReactMarkdown className="markdown" source={props.article.body} />
+                <ReactMarkdown className="markdown" source={props.article.body}/>
 
             </div>
         </Layout>
@@ -31,12 +41,12 @@ const PostPage: NextPage = (props: Props) => {
 };
 
 
-PostPage.getInitialProps = async ({ query }) => {
+PostPage.getInitialProps = async ({query}) => {
 
-    const { post } = query;
+    const {post} = query;
     const article = await getPostBySlug(post);
 
-    return { article };
+    return {article};
 };
 
 export default PostPage;
