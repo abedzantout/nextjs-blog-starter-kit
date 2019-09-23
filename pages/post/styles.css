@@ -1,0 +1,40 @@
+.post-container {
+    margin: 1rem auto 1rem 4rem;
+
+    width: 65%;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol {
+    margin-bottom: 1.5rem;
+
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.01rem;
+}
+
+.markdown pre {
+    margin: 3rem 0;
+}
+
+.markdown ul, ol {
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.markdown li {
+    margin-bottom: 1rem;
+}
+
+.markdown h2, .markdown h3 {
+    margin: 4rem 0 1.5rem;
+
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height:1.5;
+}
+
+.markdown a {
+    transition: color 0.2s;
+}

@@ -1,0 +1,38 @@
+{
+  "projectName": "nextjs-static-starter-kit",
+  "projectOwner": "techhiveIO",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors":[
+    {
+      "login": "abedzantout",
+      "name": "Abdul Rahman Zantout",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4046627?v=4",
+      "profile": "https://github.com/abedzantout",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "design",
+        "blog"
+      ]
+    }, {
+      "login": "aliobaji",
+      "name": "Ali El-Obaji",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17101112?s=400&v=4",
+      "profile": "https://github.com/aliobaji",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "design",
+        "blog"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+.filters {
+    padding: 2rem;
+
+    border-radius: 4px;
+    border: 1px solid #ececec;
+}
+
+.filters__tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filters__tags .tag {
+    padding: 0.25rem 0.5rem;
+    margin: 0.5rem 0.25rem;
+
+    font-size: 1rem;
+    border: 1px solid #12284c;
+    border-radius: 20px;
+
+    opacity: .5;
+
+    transition: opacity .4s;
+}
+
+.filters__tags .tag.tag--selected, .filters__tags .tag:hover {
+    opacity: 1;
+}

@@ -1,0 +1,57 @@
+.card {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+
+    overflow: hidden;
+
+    transition: box-shadow .2s;
+}
+
+.card:hover {
+    box-shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.16);
+}
+
+.card__header {
+    flex-basis: 40%;
+    flex-grow: 1.5;
+
+    background-size: cover !important;
+}
+
+.card__body {
+    flex-basis: 40%;
+    flex-shrink: 0.8;
+
+    padding: 0.25rem 1rem;
+}
+
+.card__footer {
+    flex-basis: 8%;
+
+    padding: 0.25rem 1rem;
+}
+
+.card__title {
+    font-size: 21px;
+    font-weight: normal;
+    color: #12284C;
+}
+
+.card__text {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.5;
+    color: #12284c;
+
+    opacity: .8;
+}
+
+.card__action {
+    text-decoration: none;
+    color: #27ADD5;
+}

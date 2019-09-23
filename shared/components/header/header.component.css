@@ -1,0 +1,38 @@
+.nav {
+    display: flex;
+
+    padding: 1.5rem 1rem;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid #ececec;
+}
+
+.brand {
+    display: flex;
+
+    cursor: pointer;
+}
+
+.brand__logo {
+    height: auto;
+    width: auto;
+    max-height: 4rem;
+}
+
+.brand__name {
+    margin: auto 0;
+
+    color: #16498A;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+@media (min-width: 991px) {
+
+}
+
+@media (min-width: 1200px) {
+    .nav {
+        padding: 1.5rem 4rem;
+    }
+}

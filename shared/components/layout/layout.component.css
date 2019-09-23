@@ -1,0 +1,15 @@
+.layout {
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .layout {
+        padding: 2rem 3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .layout {
+        padding: 2rem 2.5rem;
+    }
+}
