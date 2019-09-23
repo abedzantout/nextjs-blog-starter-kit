@@ -1,4 +1,4 @@
-import { ContentfulCollection, createClient } from 'contentful';
+import { createClient } from 'contentful';
 
 export const CONTENT_TYPE_BLOGPOST = 'blogPost';
 export const CONTENT_TYPE_PERSON = 'author';
