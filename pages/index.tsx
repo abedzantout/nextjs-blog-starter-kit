@@ -1,15 +1,15 @@
-import React, {FunctionComponent, useEffect, useState} from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import './home.css';
-import {NextPage} from 'next';
-import {useRouter} from 'next/router'
+import { NextPage } from 'next';
+import { useRouter } from 'next/router'
 
-import {defaultMetaTags} from '../core/constants';
+import { defaultMetaTags } from '../core/constants';
 import Layout from '../shared/components/layout/layout.component';
-import {getAllTags, getBlogPostEntries} from '../core/contentful';
-import {BlogPost} from '../interfaces/post';
+import { ContentfulService } from '../core/contentful';
+import { BlogPost } from '../interfaces/post';
 import Card from '../shared/components/card/card.component';
 import Paginator from '../shared/components/paginator/paginator.component';
-import TagFilters from "../shared/components/tag-filters/tag-filters.component";
+import TagFilters from '../shared/components/tag-filters/tag-filters.component';
 
 const calculateRange = (length) => Array.from({length}, (v, k) => k + 1);
 
@@ -68,6 +68,8 @@ const IndexPage: NextPage = (props: Props) => {
 };
 
 IndexPage.getInitialProps = async ({query}) => {
+
+    const contentfulService = new ContentfulService();
     let page: number = 1;
 
     if (query.page) {
@@ -75,14 +77,14 @@ IndexPage.getInitialProps = async ({query}) => {
     }
 
 
-    const {entries, total, skip, limit} = await getBlogPostEntries({
+    const {entries, total, skip, limit} = await contentfulService.getBlogPostEntries({
         tag: query.tag ? query.tag.toString() : '',
         skip: page - 1,
         limit: 2,
     });
 
     // TODO: need to move outside
-    const {tags} = await getAllTags();
+    const {tags} = await contentfulService.getAllTags();
 
     return {page, tags, entries, total, skip, limit};
 };

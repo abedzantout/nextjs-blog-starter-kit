@@ -4,7 +4,7 @@ import './styles.css';
 import ReactMarkdown from 'react-markdown';
 
 import Layout from '../../shared/components/layout/layout.component';
-import { getPostBySlug } from '../../core/contentful';
+import { ContentfulService } from '../../core/contentful';
 
 import { BlogPost } from '../../interfaces/post';
 import { MetaTags, PageType, RobotsContent } from '../../interfaces/meta-tags';
@@ -43,8 +43,10 @@ const PostPage: NextPage = (props: Props) => {
 
 PostPage.getInitialProps = async ({query}) => {
 
+    const contentfulService = new ContentfulService();
+
     const {post} = query;
-    const article = await getPostBySlug(post);
+    const article = await contentfulService.getPostBySlug(post);
 
     return {article};
 };
