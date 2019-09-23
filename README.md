@@ -21,7 +21,6 @@ cd my-project
 rm -r .git
 cp .env.example .env
 npm run dev
-####
 ```
 
 Make sure you enter the correct values in your `.env` file:
