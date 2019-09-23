@@ -10,12 +10,14 @@
     "export": "next build && next export",
     "postexport": "node utils/post-export.js",
     "type-check": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format:write": "prettier \"**/*.{ts,js,json,md,scss}\" --write",
-    "format:test": "prettier \"**/*.{ts,js,json,md,scss}\" --list-different",
+    "format:write": "prettier \"**/*.{ts,js,json,md,css}\" --write",
+    "format:test": "prettier \"**/*.{ts,js,json,md,css}\" --list-different",
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "release": "standard-version && git push --follow-tags origin master",
-    "populate:contentful": "contentful space migration --space-id <SPACE_KEY> utils/contentful.js --yes"
+    "populate:contentful": "contentful space migration --space-id <SPACE_KEY> utils/contentful.js --yes",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
+    "contributors:check": "all-contributors check"
   },
   "repository": {
     "type": "git",
@@ -58,6 +60,7 @@
     "@types/react-dom": "~16.9.0",
     "@typescript-eslint/eslint-plugin": "~2.3.0",
     "@typescript-eslint/parser": "~2.3.0",
+    "all-contributors-cli": "^6.9.1",
     "contentful-cli": "~1.1.0",
     "contentful-migration": "~1.0.0",
     "eslint-config-prettier": "~6.3.0",

@@ -1,16 +1,19 @@
 # Next JS Static starter-kit
+by [@techhive.IO](https://www.techhive.io/)
 
-[Demo](https://nextjs-static-starter-kit.netlify.com/)
 
-## Features
+## Table of Content
+- [Live Demo](https://nextjs-static-starter-kit.netlify.com/)
+- [Getting Started](#setting-started)
+- [Useful Commands](#useful-commands)
+- [Goals](#goals)
+- [Features](#features)
+- [Learning Materials](#learning-materials)
+- [Bugs](#bugs)
+- [Contributors](#contributors)
+- [License](#license)
 
-- Latest Typescript
-- NextJs
-- SEO & Analytics (Google Analytics, Meta Tags)
-- Static export and website optimization
-- jsx implementation
-
-## Installation
+## Getting Started 
 
 ```bash
 git clone https://github.com/techhiveIO/nextjs-static-boilerplate.git my-project
@@ -21,13 +24,72 @@ yarn dev
 ####
 ```
 
-## Decisions made
+## Useful Commands
+ - `dev` - start application in development mode
+ - `build` -  build application in production mode
+ - `start` - start application in production mode
+ - `export` - build and export application into a static website
+ - `postexport`  -  runs the post-export.js script, creates the sitemap.xml
+ - `type-check`- type checking for typescript 
+ - `format:write` -  runs prettier to format whole code base (`.ts` and `.css`)
+ - `lint` - lints project using eslint,
+ - `populate:contentful` - populates Contentful CMS
 
-### Why?
+## Goals 
 
 Developers often want a good starting point when implementing a new website.
 With this starter kit, the developer can implement a new blog, or use it as a
-foundation to build any static website using NextJS
+inspiration to build any static website using NextJS.
+
+## Features
+- Next.Js with Typescript support out of the box
+- Static Export out of the box
+- Contentful Integration with scripts to automatically populate your CMS
+- Easy integration and Deployment over Netlify and Zeit Now
+- Custom components 
+- SEO friendly, with dynamic meta tags
+- Google Analytics
+- Optimized for speed and scalability
+
+## Stack
+- Next.Js (V9+)
+- Typescript
+- Netlify
+- Contentful
+
+## Learning Materials
+
+[How to build a powerful blog with NextJS and Contentful](https://www.techhive.io/our-insights/how-to-build-a-powerful-blog-with-nextjs-and-contentful)
+
+## Bugs
+
+Please make sure you fill in the appropriate fields when submitting an issue. Our team will 
+try to resolve it as soon as possible
+
+## Contributors
+
+Want to start contributing to open source with Next.Js ?
+
+Leave your mark and join the growing team of contributors!
+
+Get started by checking out list of open [issues]((https://github.com/techhiveIO/nextjs-static-starter-kit/issues)) 
+and reading [Contributor Guide]([Contributor Guide](https://github.com/techhiveIO/nextjs-static-starter-kit/blob/master/CONTRIBUTING.md))
+
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/abedzantout"><img src="https://avatars3.githubusercontent.com/u/4046627?v=4" width="100px;" alt="Abdul Rahman Zantout"/><br /><sub><b>Abdul Rahman Zantout</b></sub></a><br /><a href="https://github.com/tomastrajan/angular-ngrx-material-starter/commits?author=abedzantout" title="Code">💻</a> <a href="https://github.com/tomastrajan/angular-ngrx-material-starter/commits?author=abedzantout" title="Documentation">📖</a> <a href="https://github.com/tomastrajan/angular-ngrx-material-starter/commits?author=abedzantout" title="Tests">⚠️</a> <a href="#design-abedzantout" title="Design">🎨</a> <a href="#blog-abedzantout" title="Blogposts">📝</a></td>
+    <td align="center"><a href="https://github.com/aliobaji"><img src="https://avatars0.githubusercontent.com/u/17101112?s=400&v=4" width="100px;" alt="Ali El-Obaji"/><br /><sub><b>Ali El-Obaji</b></sub></a><br /><a href="https://github.com/tomastrajan/angular-ngrx-material-starter/commits?author=aliobaji" title="Code">💻</a> <a href="https://github.com/tomastrajan/angular-ngrx-material-starter/commits?author=aliobaji" title="Documentation">📖</a> <a href="https://github.com/tomastrajan/angular-ngrx-material-starter/commits?author=aliobaji" title="Tests">⚠️</a> <a href="#design-aliobaji" title="Design">🎨</a> <a href="#blog-aliobaji" title="Blogposts">📝</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 
 ## License
 
