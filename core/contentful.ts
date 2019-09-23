@@ -47,6 +47,7 @@ export class ContentfulService {
         include: 1,
         limit,
         skip,
+        order: 'fields.publishDate',
         'fields.tags.sys.id': tag,
         content_type: CONTENT_TYPE_BLOGPOST
       });

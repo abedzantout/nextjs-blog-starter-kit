@@ -79,8 +79,8 @@ IndexPage.getInitialProps = async ({query}) => {
 
     const {entries, total, skip, limit} = await contentfulService.getBlogPostEntries({
         tag: query.tag ? query.tag.toString() : '',
-        skip: page - 1,
-        limit: 2,
+        skip: (page - 1) * 3,
+        limit: 3,
     });
 
     // TODO: need to move outside
