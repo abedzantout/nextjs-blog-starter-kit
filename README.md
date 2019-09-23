@@ -20,10 +20,16 @@ git clone https://github.com/techhiveIO/nextjs-static-boilerplate.git my-project
 cd my-project
 rm -r .git
 cp .env.example .env
-yarn dev
+npm run dev
 ####
 ```
 
+Make sure you enter the correct values in your `.env` file:
+```
+CONTENTFUL_SPACE=<your contentful space>
+CONTENTFUL_TOKEN=<your contentful token>
+PUBLIC_DOMAIN=<your domain name>
+```
 ## Useful Commands
  - `dev` - start application in development mode
  - `build` -  build application in production mode
