@@ -73,7 +73,7 @@ Want to start contributing to open source with Next.Js ?
 Leave your mark and join the growing team of contributors!
 
 Get started by checking out list of open [issues]((https://github.com/techhiveIO/nextjs-static-starter-kit/issues)) 
-and reading [Contributor Guide]([Contributor Guide](https://github.com/techhiveIO/nextjs-static-starter-kit/blob/master/CONTRIBUTING.md))
+and reading [Contributor Guide](https://github.com/techhiveIO/nextjs-static-starter-kit/blob/master/CONTRIBUTING.md)
 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
