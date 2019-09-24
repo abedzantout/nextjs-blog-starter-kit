@@ -57,10 +57,10 @@ inspiration to build any static website using NextJS.
 - Optimized for speed and scalability
 
 ## Stack
-- Next.Js (V9+)
+- [Next.Js (V9+)](https://github.com/zeit/next.js)
 - Typescript
-- Netlify
-- Contentful
+- [Netlify](https://www.netlify.com)
+- [Contentful](https://www.contentful.com)
 
 ## Learning Materials
 
