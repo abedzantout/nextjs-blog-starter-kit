@@ -105,15 +105,45 @@ export class ContentfulService {
         }
     }
 
-    async fetchSuggestions(tags: string[]) {
-        try {
-            const contents = await this.client.getEntries({
-                content_type: CONTENT_TYPE_BLOGPOST,
-                limit: 3,
-                'fields.tags.sys.id[in]': tags.join(','),
-            })
+    async fetchSuggestions(tags: string[], currentArticleSlug: string) {
 
-            const entries = contents.items
+
+        const limit = 3;
+        let entries = [];
+
+        const initialOptions = {
+            content_type: CONTENT_TYPE_BLOGPOST,
+            limit,
+            'fields.tags.sys.id[in]': tags.length ? tags.join(',') : undefined,  // find at least one matching tag, else undefined properties are not copied
+            'fields.slug[ne]': currentArticleSlug, // exclude current article
+        };
+
+        try {
+
+            const suggestionsByTags = await this.client.getEntries(initialOptions);
+
+            entries = suggestionsByTags.items;
+            // number of suggestions by tag is less than the limit
+            if (suggestionsByTags.total < limit) {
+                // exclude already picked slugs
+                const slugsToExclude = [...suggestionsByTags.items].length
+                    ? [...suggestionsByTags.items]
+                        .map((item: { fields: any }) => item.fields.slug)
+                        .join(',')
+                    : suggestionsByTags;
+
+                // fetch random suggestions
+                const randomSuggestions = await this.client.getEntries({
+                    content_type: CONTENT_TYPE_BLOGPOST,
+                    limit: limit - suggestionsByTags.total,
+                    'fields.tags.sys.id[in]': tags.join(','),  // find at least one matching tag
+                    'fields.slug[nin]': slugsToExclude, // exclude slugs already fetched
+                });
+
+                entries = [...entries, ...randomSuggestions.items];
+            }
+
+            entries = entries
                 .map(({sys, fields}: { sys: any; fields: any }) => ({
                     id: sys.id,
                     title: fields.title,

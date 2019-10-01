@@ -45,9 +45,12 @@ PostPage.getInitialProps = async ({ query }) => {
   const { post } = query;
   const article = await contentfulService.getPostBySlug(post);
 
-  const tags = article.tags.map(tag => tag.sys.id);
+  const tags = article.tags ? article.tags.map(tag => tag.sys.id) : [];
 
-  const suggestedArticles = await contentfulService.fetchSuggestions(tags);
+  const suggestedArticles = await contentfulService.fetchSuggestions(
+    tags,
+    article.slug
+  );
 
   return { article, suggestedArticles };
 };
