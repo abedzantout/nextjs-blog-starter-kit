@@ -1,4 +1,5 @@
 import { createClient } from 'contentful';
+import { BlogPost } from '../interfaces/post';
 
 export const CONTENT_TYPE_BLOGPOST = 'blogPost';
 export const CONTENT_TYPE_PERSON = 'author';
@@ -13,6 +14,24 @@ export class ContentfulService {
         accessToken: Token,
     });
 
+    /**
+     * Maps the items fetched by contentful
+     * @param entries
+     */
+    private mapData(entries): BlogPost[] {
+        return entries.map(({sys, fields}: { sys: any; fields: any }) => ({
+            id: sys.id,
+            title: fields.title,
+            description: fields.description,
+            heroImage: fields.heroImage.fields.file.url,
+            slug: fields.slug,
+            tags: fields.tags,
+            publishedAt: fields.publishDate
+                ? new Date(fields.publishDate)
+                : new Date(sys.createdAt),
+        }));
+    }
+
     async fetchPostBySlug(slug) {
         return await this.client.getEntries({
             content_type: CONTENT_TYPE_BLOGPOST,
@@ -20,6 +39,9 @@ export class ContentfulService {
         });
     }
 
+    /**
+     * Get all tags
+     */
     async getAllTags() {
         const content = await this.client.getEntries({
             content_type: CONTENT_TYPE_TAGS,
@@ -35,7 +57,7 @@ export class ContentfulService {
         return {tags};
     }
 
-    public async getBlogPostEntries(
+    async getBlogPostEntries(
         {limit, skip, tag}: { limit?: number; skip?: number; tag?: string } = {
             limit: 5,
             skip: 0,
@@ -52,18 +74,7 @@ export class ContentfulService {
                 content_type: CONTENT_TYPE_BLOGPOST,
             });
 
-            const entries = contents.items
-                .map(({sys, fields}: { sys: any; fields: any }) => ({
-                    id: sys.id,
-                    title: fields.title,
-                    description: fields.description,
-                    heroImage: fields.heroImage.fields.file.url,
-                    slug: fields.slug,
-                    tags: fields.tags,
-                    publishedAt: fields.publishDate
-                        ? new Date(fields.publishDate)
-                        : new Date(sys.createdAt),
-                }))
+            const entries = this.mapData(contents.items);
 
             const total = contents.total;
 
@@ -114,7 +125,8 @@ export class ContentfulService {
         const initialOptions = {
             content_type: CONTENT_TYPE_BLOGPOST,
             limit,
-            'fields.tags.sys.id[in]': tags.length ? tags.join(',') : undefined,  // find at least one matching tag, else undefined properties are not copied
+            // find at least one matching tag, else undefined properties are not copied
+            'fields.tags.sys.id[in]': tags.length ? tags.join(',') : undefined,
             'fields.slug[ne]': currentArticleSlug, // exclude current article
         };
 
@@ -141,18 +153,7 @@ export class ContentfulService {
 
             }
 
-            entries = entries
-                .map(({sys, fields}: { sys: any; fields: any }) => ({
-                    id: sys.id,
-                    title: fields.title,
-                    description: fields.description,
-                    heroImage: fields.heroImage.fields.file.url,
-                    slug: fields.slug,
-                    tags: fields.tags,
-                    publishedAt: fields.publishDate
-                        ? new Date(fields.publishDate)
-                        : new Date(sys.createdAt),
-                }));
+            entries = this.mapData(entries);
 
             return entries;
         } catch (e) {
