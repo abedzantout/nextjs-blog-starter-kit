@@ -62,6 +62,7 @@ inspiration to build any static website using NextJS.
 - SEO friendly, with dynamic meta tags
 - Google Analytics
 - Optimized for speed and scalability
+- Relevant Suggestions for every blog post
 
 ## Stack
 
