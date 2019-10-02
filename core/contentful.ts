@@ -118,7 +118,6 @@ export class ContentfulService {
 
     async fetchSuggestions(tags: string[], currentArticleSlug: string) {
 
-
         const limit = 3;
         let entries = [];
 
