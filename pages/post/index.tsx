@@ -8,11 +8,17 @@ import { ContentfulService } from '../../core/contentful';
 
 import { BlogPost } from '../../interfaces/post';
 import { MetaTags, PageType, RobotsContent } from '../../interfaces/meta-tags';
+import Card from '../../shared/components/card/card.component';
 
 type Props = {
   article: BlogPost;
   suggestedArticles: BlogPost[];
 };
+
+const renderCards = suggestions =>
+  suggestions.map((suggestion, index) => (
+    <Card key={index} info={suggestion} />
+  ));
 const PostPage: NextPage = (props: Props) => {
   const postMetaTags: MetaTags = {
     canonical: `${process.env.DOMAIN_PUBLIC}`,
@@ -35,6 +41,7 @@ const PostPage: NextPage = (props: Props) => {
         </div>
         <ReactMarkdown className="markdown" source={props.article.body} />
       </div>
+      <div className="suggestions">{renderCards(props.suggestedArticles)}</div>
     </Layout>
   );
 };

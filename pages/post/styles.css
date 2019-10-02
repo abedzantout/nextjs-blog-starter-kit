@@ -2,6 +2,9 @@
   margin: 1rem auto 1rem 4rem;
 
   width: 65%;
+
+  border-bottom: 1px solid #ececec;
+  padding: 1.5rem 0;
 }
 
 .markdown p,
@@ -39,4 +42,22 @@ ol {
 
 .markdown a {
   transition: color 0.2s;
+}
+
+.suggestions {
+  display: flex;
+  flex-flow: row;
+  padding: 1.5rem 0;
+  margin: 1rem auto 1rem 4rem;
+  justify-content: flex-start;
+}
+
+.suggestions .card {
+  margin: 0 1rem;
+  height: 450px;
+  width: 320px;
+}
+
+.suggestions .card:first-of-type {
+  margin-left: 0;
 }

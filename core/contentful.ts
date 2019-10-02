@@ -126,21 +126,19 @@ export class ContentfulService {
             // number of suggestions by tag is less than the limit
             if (suggestionsByTags.total < limit) {
                 // exclude already picked slugs
-                const slugsToExclude = [...suggestionsByTags.items].length
-                    ? [...suggestionsByTags.items]
-                        .map((item: { fields: any }) => item.fields.slug)
-                        .join(',')
-                    : suggestionsByTags;
+                const slugsToExclude = [...suggestionsByTags.items, {fields: {slug: currentArticleSlug}}]
+                    .map((item: { fields: any }) => item.fields.slug)
+                    .join(',');
 
                 // fetch random suggestions
                 const randomSuggestions = await this.client.getEntries({
                     content_type: CONTENT_TYPE_BLOGPOST,
                     limit: limit - suggestionsByTags.total,
-                    'fields.tags.sys.id[in]': tags.join(','),  // find at least one matching tag
                     'fields.slug[nin]': slugsToExclude, // exclude slugs already fetched
                 });
 
                 entries = [...entries, ...randomSuggestions.items];
+
             }
 
             entries = entries
