@@ -1,76 +1,75 @@
 .paginator {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .paginator__page-number {
-    padding: 0.5rem 1rem;
-    margin: auto 0.5rem;
+  padding: 0.5rem 1rem;
+  margin: auto 0.5rem;
 
-    border-radius: 2px;
-    border: 1px solid transparent;
-    color: #16498A;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  color: #16498a;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    /*transition: all .2s;*/
+  /*transition: all .2s;*/
 }
 
 .paginator__page-number:hover {
-    border: 1px solid rgba(39, 173, 213, .2);
-    background-color: rgba(39, 173, 213, .2);
+  border: 1px solid rgba(39, 173, 213, 0.2);
+  background-color: rgba(39, 173, 213, 0.2);
 }
 
 .paginator__page-number--selected {
-    border: 1px solid #00AFDA;
-    background-color: rgba(39, 173, 213, .2);
+  border: 1px solid #00afda;
+  background-color: rgba(39, 173, 213, 0.2);
 
-    /*transition: all .2s;*/
+  /*transition: all .2s;*/
 }
 
 .paginator__button {
-    padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
 
-    color: #12284C;
-    background-color: transparent;
-    border: 0;
-    font-size: 1rem;
+  color: #12284c;
+  background-color: transparent;
+  border: 0;
+  font-size: 1rem;
 
-    opacity: .6;
+  opacity: 0.6;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: opacity .2s;
+  transition: opacity 0.2s;
 }
 
 .paginator__button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .paginator__button:focus {
-    outline: none;
+  outline: none;
 }
 
 .paginator__button__indicator {
-    color: #27ADD5;
+  color: #27add5;
 }
 
 .paginator__button__indicator.left {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .paginator__button__indicator.right {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .paginator__button__label {
-    display: none;
+  display: none;
 }
 
 @media (min-width: 1200px) {
-    .paginator__button__label {
-        display: inline-block;
-    }
-
+  .paginator__button__label {
+    display: inline-block;
+  }
 }

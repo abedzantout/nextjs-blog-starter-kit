@@ -1,9 +1,11 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/12ca189b-a0ff-4947-9749-a52bb521006f/deploy-status)](https://app.netlify.com/sites/nextjs-static-starter-kit/deploys)
+
 # Next JS Static starter-kit
+
 by [@techhive.IO](https://www.techhive.io/)
 
-
 ## Table of Content
+
 - [Live Demo](https://nextjs-static-starter-kit.netlify.com/)
 - [Getting Started](#setting-started)
 - [Useful Commands](#useful-commands)
@@ -14,7 +16,7 @@ by [@techhive.IO](https://www.techhive.io/)
 - [Contributors](#contributors)
 - [License](#license)
 
-## Getting Started 
+## Getting Started
 
 ```bash
 git clone https://github.com/techhiveIO/nextjs-static-boilerplate.git my-project
@@ -25,39 +27,45 @@ npm run dev
 ```
 
 Make sure you enter the correct values in your `.env` file:
+
 ```
 CONTENTFUL_SPACE=<your contentful space>
 CONTENTFUL_TOKEN=<your contentful token>
 PUBLIC_DOMAIN=<your domain name>
 ```
-## Useful Commands
- - `dev` - start application in development mode
- - `build` -  build application in production mode
- - `start` - start application in production mode
- - `export` - build and export application into a static website
- - `postexport`  -  runs the post-export.js script, creates the sitemap.xml
- - `type-check`- type checking for typescript 
- - `format:write` -  runs prettier to format whole code base (`.ts` and `.css`)
- - `lint` - lints project using eslint,
- - `populate:contentful` - populates Contentful CMS
 
-## Goals 
+## Useful Commands
+
+- `dev` - start application in development mode
+- `build` - build application in production mode
+- `start` - start application in production mode
+- `export` - build and export application into a static website
+- `postexport` - runs the post-export.js script, creates the sitemap.xml
+- `type-check`- type checking for typescript
+- `format:write` - runs prettier to format whole code base (`.ts` and `.css`)
+- `lint` - lints project using eslint,
+- `populate:contentful` - populates Contentful CMS
+
+## Goals
 
 Developers often want a good starting point when implementing a new website.
 With this starter kit, the developer can implement a new blog, or use it as a
 inspiration to build any static website using NextJS.
 
 ## Features
+
 - Next.Js with Typescript support out of the box
 - Static Export out of the box
 - Contentful Integration with scripts to automatically populate your CMS
 - Easy integration and Deployment over Netlify and Zeit Now
-- Custom components 
+- Custom components
 - SEO friendly, with dynamic meta tags
 - Google Analytics
 - Optimized for speed and scalability
+- Relevant Suggestions for every blog post
 
 ## Stack
+
 - [Next.Js (V9+)](https://github.com/zeit/next.js)
 - Typescript
 - [Netlify](https://www.netlify.com)
@@ -69,7 +77,7 @@ inspiration to build any static website using NextJS.
 
 ## Bugs
 
-Please make sure you fill in the appropriate fields when submitting an issue. Our team will 
+Please make sure you fill in the appropriate fields when submitting an issue. Our team will
 try to resolve it as soon as possible
 
 ## Contributors
@@ -78,9 +86,8 @@ Want to start contributing to open source with Next.Js ?
 
 Leave your mark and join the growing team of contributors!
 
-Get started by checking out list of open [issues]((https://github.com/techhiveIO/nextjs-static-starter-kit/issues)) 
+Get started by checking out list of open [issues](<(https://github.com/techhiveIO/nextjs-static-starter-kit/issues)>)
 and reading [Contributor Guide](https://github.com/techhiveIO/nextjs-static-starter-kit/blob/master/CONTRIBUTING.md)
-
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -94,8 +101,8 @@ and reading [Contributor Guide](https://github.com/techhiveIO/nextjs-static-star
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## License
 
