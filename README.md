@@ -75,6 +75,8 @@ inspiration to build any static website using NextJS.
 
 [How to build a powerful blog with NextJS and Contentful](https://www.techhive.io/our-insights/how-to-build-a-powerful-blog-with-nextjs-and-contentful)
 
+[Making your blog smarter - How to implement suggestions](https://www.techhive.io/our-insights/making-your-blog-smarter-how-to-implement-suggestions)
+
 ## Bugs
 
 Please make sure you fill in the appropriate fields when submitting an issue. Our team will
