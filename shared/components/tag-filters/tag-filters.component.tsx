@@ -11,7 +11,7 @@ const TagFilters: FunctionComponent<Props> = ({
   updatePage,
   selectedTagId
 }) => {
-  const handleTagChosen = tag => {
+  const handleTagChosen = (tag) => {
     updatePage(tag);
   };
 

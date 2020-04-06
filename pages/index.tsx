@@ -11,7 +11,7 @@ import Card from '../shared/components/card/card.component';
 import Paginator from '../shared/components/paginator/paginator.component';
 import TagFilters from '../shared/components/tag-filters/tag-filters.component';
 
-const calculateRange = length => Array.from({ length }, (v, k) => k + 1);
+const calculateRange = (length) => Array.from({ length }, (v, k) => k + 1);
 
 type Props = {
   entries: BlogPost[];
@@ -23,7 +23,7 @@ type Props = {
   page?: number;
 };
 
-const cards = entries =>
+const cards = (entries) =>
   entries.map((entry, index) => <Card info={entry} key={index} />);
 
 const IndexPage: NextPage<Props, any> = (props: Props) => {
@@ -43,7 +43,7 @@ const IndexPage: NextPage<Props, any> = (props: Props) => {
     void router.push({ pathname: '/', query: { page: page, tag: tag } });
   }, [page, tag]);
 
-  const handleTagChosen = tag => {
+  const handleTagChosen = (tag) => {
     updatePage(1);
     updateTag(tag);
   };
@@ -64,7 +64,7 @@ const IndexPage: NextPage<Props, any> = (props: Props) => {
         </div>
         <div className="pagination">
           <Paginator
-            handlePaginationChange={event => updatePage(event)}
+            handlePaginationChange={(event) => updatePage(event)}
             range={range}
             skip={page}
           />

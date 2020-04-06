@@ -27,10 +27,10 @@ const getAllArticles = async () => {
 };
 exports.generateAllAuthors = async () => {
   const authors = await getAllAuthors();
-  return authors.items.map(item => ({ ...item.fields }));
+  return authors.items.map((item) => ({ ...item.fields }));
 };
 
 exports.generateAllArticles = async () => {
   const articles = await getAllArticles();
-  return articles.items.map(item => ({ ...item.fields }));
+  return articles.items.map((item) => ({ ...item.fields }));
 };

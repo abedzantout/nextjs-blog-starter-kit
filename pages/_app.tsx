@@ -15,7 +15,7 @@ import { trackPageView } from '../core/gtag';
 import Footer from '../shared/components/footer/footer.component';
 import Header from '../shared/components/header/header.component';
 
-Router.events.on('routeChangeComplete', url => trackPageView(url));
+Router.events.on('routeChangeComplete', (url) => trackPageView(url));
 
 class MyApp extends App {
   render() {
