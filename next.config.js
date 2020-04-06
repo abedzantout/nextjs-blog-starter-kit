@@ -27,8 +27,8 @@ const next_config = {
       (pages, entry) =>
         Object.assign({}, pages, {
           [`/post/${entry.slug}`]: {
-            page: '/post',
-            query: { post: entry.slug }
+            page: '/post/[slug]',
+            query: { slug: entry.slug }
           }
         }),
       {}
@@ -36,7 +36,6 @@ const next_config = {
 
     const pages = {
       '/': { page: '/' },
-      '/post': { page: '/post', query: '' }
     };
 
     return Object.assign({}, pages, insights);
