@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import './tag-filters.component.css';
 
 type Props = {
   tags: { id: string; name: string }[];

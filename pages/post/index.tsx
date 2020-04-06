@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import React from 'react';
-import './styles.css';
 import ReactMarkdown from 'react-markdown';
 
 import Layout from '../../shared/components/layout/layout.component';
@@ -19,7 +18,7 @@ const renderCards = suggestions =>
   suggestions.map((suggestion, index) => (
     <Card key={index} info={suggestion} />
   ));
-const PostPage: NextPage = (props: Props) => {
+const PostPage: NextPage<Props, any> = (props: Props) => {
   const postMetaTags: MetaTags = {
     canonical: `${process.env.DOMAIN_PUBLIC}`,
     description: `${props.article.description}`,

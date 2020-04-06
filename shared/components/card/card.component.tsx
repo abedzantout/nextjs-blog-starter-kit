@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import './card.component.css';
 import Link from 'next/link';
 import { getHref, getNavigationLink } from '../../helpers/helper';
 

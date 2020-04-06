@@ -1,5 +1,4 @@
 import React, { FunctionComponent, Fragment, useState, useEffect } from 'react';
-import './paginator.component.css';
 
 type Props = {
   skip?: number;

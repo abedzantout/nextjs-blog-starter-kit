@@ -1,6 +1,5 @@
 // next.config.js
 
-const withCSS = require('@zeit/next-css');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const { generateAllArticles } = require('./utils/helpers');
@@ -44,4 +43,4 @@ const next_config = {
   }
 };
 
-module.exports = withCSS({ ...next_config });
+module.exports = { ...next_config };

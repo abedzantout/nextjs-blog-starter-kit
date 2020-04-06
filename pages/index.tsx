@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
-import './home.css';
+import React, { useEffect, useState } from 'react';
+
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
@@ -26,7 +26,7 @@ type Props = {
 const cards = entries =>
   entries.map((entry, index) => <Card info={entry} key={index} />);
 
-const IndexPage: NextPage = (props: Props) => {
+const IndexPage: NextPage<Props, any> = (props: Props) => {
   const router = useRouter();
   const entries = props.entries.length ? props.entries : [];
   const tags = props.tags || [];
