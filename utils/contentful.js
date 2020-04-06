@@ -105,14 +105,14 @@ const tagFields = [
   }
 ];
 
-module.exports = function(migration, context) {
+module.exports = function (migration, context) {
   const tag = migration.createContentType('tag', {
     name: 'Tag',
     description: 'tag',
     displayField: 'name'
   });
 
-  tagFields.forEach(field => {
+  tagFields.forEach((field) => {
     tag.createField(field.id, {
       name: field.name,
       type: field.type,
@@ -126,7 +126,7 @@ module.exports = function(migration, context) {
     displayField: 'name'
   });
 
-  authorFields.forEach(field => {
+  authorFields.forEach((field) => {
     author.createField(field.id, {
       name: field.name,
       type: field.type,
@@ -139,7 +139,7 @@ module.exports = function(migration, context) {
     displayField: 'title'
   });
 
-  blogFields.forEach(field => {
+  blogFields.forEach((field) => {
     const options = {
       name: field.name,
       type: field.type,

@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import './card.component.css';
 import Link from 'next/link';
 import { getHref, getNavigationLink } from '../../helpers/helper';
 
@@ -29,7 +28,7 @@ const Card: FunctionComponent<Props> = ({ info }) => {
       </div>
 
       <div className="card__footer">
-        <Link href={getHref(info.slug)} as={getNavigationLink(info.slug)}>
+        <Link href={getHref()} as={getNavigationLink(info.slug)}>
           <a className="card__action">Explore</a>
         </Link>
       </div>

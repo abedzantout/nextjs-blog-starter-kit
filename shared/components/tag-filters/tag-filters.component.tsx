@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import './tag-filters.component.css';
 
 type Props = {
   tags: { id: string; name: string }[];
@@ -12,7 +11,7 @@ const TagFilters: FunctionComponent<Props> = ({
   updatePage,
   selectedTagId
 }) => {
-  const handleTagChosen = tag => {
+  const handleTagChosen = (tag) => {
     updatePage(tag);
   };
 

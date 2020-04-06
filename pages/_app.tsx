@@ -3,12 +3,19 @@ import React from 'react';
 import Router from 'next/router';
 
 import './styles.css';
+import './home.css';
+import '../shared/styles/card.component.css';
+import '../shared/styles/footer.component.css';
+import '../shared/styles/header.component.css';
+import '../shared/styles/layout.component.css';
+import '../shared/styles/paginator.component.css';
+import '../shared/styles/tag-filters.component.css';
 
 import { trackPageView } from '../core/gtag';
 import Footer from '../shared/components/footer/footer.component';
 import Header from '../shared/components/header/header.component';
 
-Router.events.on('routeChangeComplete', url => trackPageView(url));
+Router.events.on('routeChangeComplete', (url) => trackPageView(url));
 
 class MyApp extends App {
   render() {

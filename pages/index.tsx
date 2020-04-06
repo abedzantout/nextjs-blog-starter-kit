@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
-import './home.css';
+import React, { useEffect, useState } from 'react';
+
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
@@ -11,7 +11,7 @@ import Card from '../shared/components/card/card.component';
 import Paginator from '../shared/components/paginator/paginator.component';
 import TagFilters from '../shared/components/tag-filters/tag-filters.component';
 
-const calculateRange = length => Array.from({ length }, (v, k) => k + 1);
+const calculateRange = (length) => Array.from({ length }, (v, k) => k + 1);
 
 type Props = {
   entries: BlogPost[];
@@ -23,10 +23,10 @@ type Props = {
   page?: number;
 };
 
-const cards = entries =>
+const cards = (entries) =>
   entries.map((entry, index) => <Card info={entry} key={index} />);
 
-const IndexPage: NextPage = (props: Props) => {
+const IndexPage: NextPage<Props, any> = (props: Props) => {
   const router = useRouter();
   const entries = props.entries.length ? props.entries : [];
   const tags = props.tags || [];
@@ -43,7 +43,7 @@ const IndexPage: NextPage = (props: Props) => {
     void router.push({ pathname: '/', query: { page: page, tag: tag } });
   }, [page, tag]);
 
-  const handleTagChosen = tag => {
+  const handleTagChosen = (tag) => {
     updatePage(1);
     updateTag(tag);
   };
@@ -64,7 +64,7 @@ const IndexPage: NextPage = (props: Props) => {
         </div>
         <div className="pagination">
           <Paginator
-            handlePaginationChange={event => updatePage(event)}
+            handlePaginationChange={(event) => updatePage(event)}
             range={range}
             skip={page}
           />
