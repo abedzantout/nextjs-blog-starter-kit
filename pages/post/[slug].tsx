@@ -8,6 +8,7 @@ import { ContentfulService } from '../../core/contentful';
 import { BlogPost } from '../../interfaces/post';
 import { MetaTags, PageType, RobotsContent } from '../../interfaces/meta-tags';
 import Card from '../../shared/components/card/card.component';
+import { useRouter } from 'next/router';
 
 type Props = {
   article: BlogPost;
