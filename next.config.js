@@ -35,7 +35,7 @@ const next_config = {
     );
 
     const pages = {
-      '/': { page: '/' },
+      '/': { page: '/' }
     };
 
     return Object.assign({}, pages, insights);

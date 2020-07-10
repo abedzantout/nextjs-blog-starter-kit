@@ -11,7 +11,7 @@ type Props = {
 const Layout: FunctionComponent<Props> = ({ metaTags, children }) => {
   return (
     <Fragment>
-      <Meta tags={metaTags}/>
+      <Meta tags={metaTags} />
       <div className={styles.layout}>
         <main>{children}</main>
       </div>

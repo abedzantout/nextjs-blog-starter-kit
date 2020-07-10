@@ -5,7 +5,8 @@
   border: 1px solid #ececec;
 }
 
-.filters__header {}
+.filters__header {
+}
 .filters__tags {
   display: flex;
   flex-wrap: wrap;

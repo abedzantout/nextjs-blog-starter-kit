@@ -36,7 +36,7 @@ const IndexPage: NextPage<Props, any> = (props: Props) => {
   const rangeLimit = Math.ceil(total / limit);
   const range = calculateRange(rangeLimit);
 
-  const [page, updatePage] = useState(!!props.page ? props.page : 1);
+  const [page, updatePage] = useState(props.page ? props.page : 1);
   const [tag, updateTag] = useState('');
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const IndexPage: NextPage<Props, any> = (props: Props) => {
 
 IndexPage.getInitialProps = async ({ query }) => {
   const contentfulService = new ContentfulService();
-  let page: number = 1;
+  let page = 1;
 
   if (query.page) {
     page = parseInt(query.page + '');
