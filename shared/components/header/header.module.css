@@ -16,7 +16,8 @@
 .brand__logo {
   height: auto;
   width: auto;
-  max-height: 4rem;
+  max-height: 3rem;
+  margin-right: 1rem;
 }
 
 .brand__name {

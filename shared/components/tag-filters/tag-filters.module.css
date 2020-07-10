@@ -5,6 +5,8 @@
   border: 1px solid #ececec;
 }
 
+.filters__header {
+}
 .filters__tags {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +25,7 @@
   transition: opacity 0.4s;
 }
 
-.filters__tags .tag.tag--selected,
+.filters__tags .tag.tag__selected,
 .filters__tags .tag:hover {
   opacity: 1;
 }

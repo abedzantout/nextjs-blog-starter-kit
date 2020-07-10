@@ -4,7 +4,7 @@
   align-content: center;
 }
 
-.paginator__page-number {
+.paginator__page__number {
   padding: 0.5rem 1rem;
   margin: auto 0.5rem;
 
@@ -17,12 +17,12 @@
   /*transition: all .2s;*/
 }
 
-.paginator__page-number:hover {
+.paginator__page__number:hover {
   border: 1px solid rgba(39, 173, 213, 0.2);
   background-color: rgba(39, 173, 213, 0.2);
 }
 
-.paginator__page-number--selected {
+.paginator__page-number__selected {
   border: 1px solid #00afda;
   background-color: rgba(39, 173, 213, 0.2);
 

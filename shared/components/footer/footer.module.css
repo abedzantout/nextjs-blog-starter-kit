@@ -1,25 +1,35 @@
-footer {
+.footer {
   padding: 1rem;
 
   border-top: 1px solid #e5e5e5;
 }
 
-footer .dev-team {
+.devTeam {
   color: #12284c;
 }
 
-.dev-team__love {
+.devTeam__love {
   color: red;
 }
 
+.link {
+  color: #27add5;
+  text-decoration: none;
+}
+
+.link:hover,
+.link:focus {
+  color: #27add5;
+}
+
 @media (min-width: 768px) {
-  footer {
+  .footer {
     padding: 1rem 3rem;
   }
 }
 
 @media (min-width: 1200px) {
-  footer {
+  .footer {
     padding: 1rem 5.5rem;
   }
 }

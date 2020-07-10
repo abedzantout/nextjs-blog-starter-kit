@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
+import styles from './tag-filters.module.css';
+
 type Props = {
   tags: { id: string; name: string }[];
   selectedTagId: string;
@@ -17,8 +19,10 @@ const TagFilters: FunctionComponent<Props> = ({
 
   const renderTag = (tag, index) => (
     <div
-      className={`tag ${
-        selectedTagId === '' || selectedTagId === tag.id ? 'tag--selected' : ''
+      className={`global-tag ${styles.tag} ${
+        selectedTagId === '' || selectedTagId === tag.id
+          ? styles.tag__selected
+          : ''
       }`}
       key={index}
       onClick={() => handleTagChosen(tag.id)}
@@ -28,11 +32,13 @@ const TagFilters: FunctionComponent<Props> = ({
   );
 
   return (
-    <div className="filters">
-      <h2 className="filters__header">Filter By Tags.</h2>
-      <div className="filters__tags">
+    <div className={styles.filters}>
+      <h2 className={styles.filters__header}>Filter By Tags.</h2>
+      <div className={styles.filters__tags}>
         <div
-          className={`tag ${selectedTagId === '' ? 'tag--selected' : ''}`}
+          className={`${styles.tag} ${
+            selectedTagId === '' ? styles.tag__selected : 'global-tag'
+          }`}
           onClick={() => handleTagChosen('')}
         >
           All
