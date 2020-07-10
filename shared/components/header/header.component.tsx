@@ -1,16 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 
+import styles from './header.module.css';
+
 type Props = {};
 const Header: FunctionComponent<Props> = ({}) => {
   return (
-    <div className="nav">
-      <div className="brand">
+    <div className={styles.nav}>
+      <div className={styles.brand}>
         <Link href="/">
-          <img className="brand__logo" src="/static/logo.png" alt="logo" />
+          <img className={styles.brand__logo} src="/static/logo.png" alt="logo" />
         </Link>
 
-        <h3 className="brand__name">TechHive.IO: NextJs Static Starter Kit.</h3>
+        <h3 className={styles.brand__name}>TechHive.IO: NextJs Static Starter Kit.</h3>
       </div>
     </div>
   );

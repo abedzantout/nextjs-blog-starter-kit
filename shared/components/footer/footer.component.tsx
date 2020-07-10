@@ -1,15 +1,17 @@
 import React, { FunctionComponent } from 'react';
 
+import styles from './footer.module.css';
+
 type Props = {};
 const Footer: FunctionComponent<Props> = ({}) => {
+  const year = (new Date()).getFullYear();
   return (
-    <footer>
-      <span className="dev-team">
-        Created with <span className="dev-team__love"> ♥ </span> by{' '}
+    <footer className={styles.footer}>
+      <span className={styles.devTeam}>
+        Created with <span className={styles.devTeam__love}> ♥ </span> by{' '}
         <a href="https://www.techhive.io" target="_blank">
           TechHive.IO
-        </a>{' '}
-        2019.
+        </a>{' ' + year}
       </span>
     </footer>
   );
