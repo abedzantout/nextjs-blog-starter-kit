@@ -112,7 +112,7 @@ and reading [Contributor Guide](https://github.com/techhiveIO/nextjs-static-star
 
 ## License
 
-NextJS Static Starter is © 2019 Techhive.IO LLC . It is distributed under the [Creative Commons
+NextJS Static Starter is © 2020 Techhive.IO LLC . It is distributed under the [Creative Commons
 Attribution License](http://creativecommons.org/licenses/by/4.0/).
 
 The names and logos for techhive.io are trademarks of techhive.io LLC.
