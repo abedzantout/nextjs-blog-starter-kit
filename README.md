@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/12ca189b-a0ff-4947-9749-a52bb521006f/deploy-status)](https://app.netlify.com/sites/nextjs-static-starter-kit/deploys)
 
-<p align="center">
+<p align="left">
   <a href="https://techhive.io/" target="blank"><img src="https://www.techhive.io/static/brand/logo-masterclass.svg" width="250" alt="Nest Logo" /></a>
 </p>
 
