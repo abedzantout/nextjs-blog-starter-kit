@@ -9,7 +9,7 @@ const Footer: FunctionComponent<Props> = ({}) => {
     <footer className={styles.footer}>
       <span className={styles.devTeam}>
         Created with <span className={styles.devTeam__love}> ♥ </span> by{' '}
-        <a href="https://www.techhive.io" target="_blank">
+        <a className={styles.link} href="https://www.techhive.io" target="_blank">
           TechHive.IO
         </a>{' ' + year}
       </span>

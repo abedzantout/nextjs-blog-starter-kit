@@ -19,7 +19,7 @@ const TagFilters: FunctionComponent<Props> = ({
 
   const renderTag = (tag, index) => (
     <div
-      className={`${styles.tag} ${
+      className={`global-tag ${styles.tag} ${
         selectedTagId === '' || selectedTagId === tag.id ? styles.tag__selected : ''
       }`}
       key={index}
@@ -34,7 +34,7 @@ const TagFilters: FunctionComponent<Props> = ({
       <h2 className={styles.filters__header}>Filter By Tags.</h2>
       <div className={styles.filters__tags}>
         <div
-          className={`${styles.tag} ${selectedTagId === '' ? styles.tag__selected : ''}`}
+          className={`${styles.tag} ${selectedTagId === '' ? styles.tag__selected : 'global-tag'}`}
           onClick={() => handleTagChosen('')}
         >
           All

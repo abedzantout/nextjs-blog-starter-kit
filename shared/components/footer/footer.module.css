@@ -12,6 +12,16 @@
     color: red;
 }
 
+.link {
+    color: #27add5;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:focus {
+    color: #27add5;
+}
+
 @media (min-width: 768px) {
     .footer {
         padding: 1rem 3rem;
