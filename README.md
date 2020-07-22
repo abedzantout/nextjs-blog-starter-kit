@@ -23,7 +23,7 @@ by [@techhive.IO](https://www.techhive.io/)
 ## Getting Started
 
 ```bash
-git clone https://github.com/techhiveIO/nextjs-static-starter-kit my-project
+git clone --depth 1 https://github.com/techhiveIO/nextjs-static-starter-kit my-project
 cd my-project
 rm -r .git
 cp .env.example .env
