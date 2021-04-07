@@ -61,7 +61,7 @@ inspiration to build any static website using NextJS.
 - Next.Js with Typescript support out of the box
 - Static Export out of the box
 - Contentful Integration with scripts to automatically populate your CMS
-- Easy integration and Deployment over Netlify and Vercel (formerly ZEIT) 
+- Easy integration and Deployment over Netlify and Vercel (formerly ZEIT)
 - Custom components
 - SEO friendly, with dynamic meta tags
 - Google Analytics
