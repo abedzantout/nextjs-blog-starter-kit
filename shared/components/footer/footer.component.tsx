@@ -2,6 +2,8 @@ import React, { FunctionComponent } from 'react';
 
 import styles from './footer.module.scss';
 
+const pjson = require('../../../package.json');
+
 const Footer: FunctionComponent = () => {
   const year = new Date().getFullYear();
   return (
@@ -15,7 +17,7 @@ const Footer: FunctionComponent = () => {
         >
           TechHive.IO
         </a>
-        {' ' + year}
+        {' ' + year} - Version {pjson.version}
       </span>
     </footer>
   );
