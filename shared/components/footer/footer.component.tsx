@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import styles from './footer.module.css';
+import styles from './footer.module.scss';
 
 const Footer: FunctionComponent = () => {
   const year = new Date().getFullYear();

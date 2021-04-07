@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, {Html, Head, Main, NextScript } from 'next/document';
 
 import { GA_TRACKING_ID } from '../core/gtag';
 
@@ -29,13 +29,8 @@ export default class extends Document<Props> {
     const { isProduction } = this.props;
 
     return (
-      <html lang={language}>
+      <Html lang={language}>
         <Head>
-          {/*Global meta tags*/}
-          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <base href="/" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           {/* We only want to add the scripts if in production */}
           {isProduction && (
@@ -55,7 +50,7 @@ export default class extends Document<Props> {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
