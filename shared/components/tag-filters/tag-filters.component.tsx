@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import styles from './tag-filters.module.css';
+import styles from './tag-filters.module.scss';
 
 type Props = {
   tags: { id: string; name: string }[];

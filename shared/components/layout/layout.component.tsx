@@ -2,7 +2,7 @@ import React, { FunctionComponent, Fragment, ReactNode } from 'react';
 import { MetaTags } from '../../../interfaces/meta-tags';
 import Meta from '../meta';
 
-import styles from './layout.module.css';
+import styles from './layout.module.scss';
 
 type Props = {
   metaTags: MetaTags;

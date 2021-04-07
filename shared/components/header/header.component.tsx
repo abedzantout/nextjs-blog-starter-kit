@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 
-import styles from './header.module.css';
+import styles from './header.module.scss';
 
 const Header: FunctionComponent = () => {
   return (

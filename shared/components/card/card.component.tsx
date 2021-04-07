@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { getHref, getNavigationLink } from '../../helpers/helper';
 
-import styles from './card.module.css';
+import styles from './card.module.scss';
 
 type Props = {
   info: {

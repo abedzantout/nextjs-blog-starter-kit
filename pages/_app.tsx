@@ -2,8 +2,8 @@ import App from 'next/app';
 import React from 'react';
 import Router from 'next/router';
 
-import './styles.css';
-import './home.css';
+import './styles.scss';
+import './home.scss';
 
 import { trackPageView } from '../core/gtag';
 import Footer from '../shared/components/footer/footer.component';

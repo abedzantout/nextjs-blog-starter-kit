@@ -5,8 +5,6 @@ Don't forget to add the domain name as process variable DOMAIN_NAME!
 
 const fs = require('fs');
 
-// Read from the static map that's provided by next
-const { exportPathMap } = require('../next.config');
 const { generateAllArticles } = require('./helpers');
 // Format to the right date
 const formatDate = (date) => `${date.toISOString().split('.')[0]}+0:00`;
@@ -40,6 +38,26 @@ const xmlUrlNode = (domain, pageUrl, lastmod) => {
 </url>`;
 };
 
+const exportPathMap = async () => {
+  const articles = await generateAllArticles();
+
+  const insights = articles.reduce(
+    (pages, entry) =>
+      Object.assign({}, pages, {
+        [`/post/${entry.slug}`]: {
+          page: '/post/[slug]',
+          query: { slug: entry.slug }
+        }
+      }),
+    {}
+  );
+
+  const pages = {
+    '/': { page: '/' }
+  };
+
+  return Object.assign({}, pages, insights);
+};
 exports.generateSitemap = async (domain, targetFolder) => {
   if (!domain) {
     throw new Error('No domain provided!');

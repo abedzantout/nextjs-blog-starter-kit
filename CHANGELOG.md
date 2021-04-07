@@ -8,23 +8,21 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.3.0](https://github.com/techhiveIO/nextjs-static-boilerplate/compare/v1.1.0...v1.3.0) (2020-07-10)
 
-
 ### Features
 
-* **app:** fetch suggested articles by post ([cdfbd66](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/cdfbd66ec020030534c0236eade157cb5845fc95))
-* **contentful:** smarter fetch suggestions mechanism ([12af419](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/12af41909d822acdfd622cd2f33abc5835292ee4))
-* **suggestions:** display suggestions + style fixes ([3048681](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/30486814fa2050cae03fa23924e80aba9e1a15ea))
-
+- **app:** fetch suggested articles by post ([cdfbd66](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/cdfbd66ec020030534c0236eade157cb5845fc95))
+- **contentful:** smarter fetch suggestions mechanism ([12af419](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/12af41909d822acdfd622cd2f33abc5835292ee4))
+- **suggestions:** display suggestions + style fixes ([3048681](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/30486814fa2050cae03fa23924e80aba9e1a15ea))
 
 ### Bug Fixes
 
-* **app:** fix post not showing on reload ([8c28cac](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/8c28cacff8529f884eba53a90cdc96e488b4f22a))
-* **card:** fix function argument ([15c5132](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/15c513216a505610c5186837572faafb446aa343))
-* **footer:** added techhive.io's website link ([41a85af](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/41a85afe7736f1bfcc37038221838256e97d38ab))
-* **footer:** fix link + global tag color ([8c12867](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/8c12867fcbdeb75c98d5643cf4fffa265e58a358))
-* **header:** added new TH logo ([3d33ba6](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/3d33ba6e25743c5667ae002a7d8d02efd1f97f86))
-* **post:** fix styles not rendering ([7747b3b](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/7747b3b89e805ebfe69d1d1274cf0a944a7d9bb6))
-* **README:** added TH logo ([d1d5166](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/d1d516602d643300552ab728b5f82b4ec732ff40))
+- **app:** fix post not showing on reload ([8c28cac](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/8c28cacff8529f884eba53a90cdc96e488b4f22a))
+- **card:** fix function argument ([15c5132](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/15c513216a505610c5186837572faafb446aa343))
+- **footer:** added techhive.io's website link ([41a85af](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/41a85afe7736f1bfcc37038221838256e97d38ab))
+- **footer:** fix link + global tag color ([8c12867](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/8c12867fcbdeb75c98d5643cf4fffa265e58a358))
+- **header:** added new TH logo ([3d33ba6](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/3d33ba6e25743c5667ae002a7d8d02efd1f97f86))
+- **post:** fix styles not rendering ([7747b3b](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/7747b3b89e805ebfe69d1d1274cf0a944a7d9bb6))
+- **README:** added TH logo ([d1d5166](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/d1d516602d643300552ab728b5f82b4ec732ff40))
 
 ## [1.2.0](https://github.com/techhiveIO/nextjs-static-boilerplate/compare/v1.1.0...v1.2.0) (2020-04-06)
 
