@@ -8,6 +8,10 @@
 
 by [@techhive.IO](https://www.techhive.io/)
 
+## Live shot
+
+![Live Shot](https://i.imgur.com/hXFQYRp.png)
+
 ## Table of Content
 
 - [Live Demo](https://nextjs-static-starter-kit.netlify.com/)
