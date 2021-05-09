@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/techhiveIO/nextjs-static-boilerplate/compare/v1.3.2...v1.3.3) (2021-04-07)
+
+
+### Bug Fixes
+
+* **app:** fix env files not loading ([4e9ce71](https://github.com/techhiveIO/nextjs-static-boilerplate/commit/4e9ce71b18645e1c65ecd190c5dd1ad06b5e3318))
+
 ### [1.3.2](https://github.com/techhiveIO/nextjs-static-boilerplate/compare/v1.3.1...v1.3.2) (2020-08-05)
 
 ### [1.3.1](https://github.com/techhiveIO/nextjs-static-boilerplate/compare/v1.3.0...v1.3.1) (2020-07-22)
