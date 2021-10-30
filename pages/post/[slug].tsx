@@ -1,13 +1,13 @@
-import { NextPage } from "next";
-import React from "react";
-import ReactMarkdown from "react-markdown";
+import { NextPage } from 'next';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
-import Layout from "../../shared/components/layout/layout.component";
-import { ContentfulService } from "../../core/contentful";
+import Layout from '../../shared/components/layout/layout.component';
+import { ContentfulService } from '../../core/contentful';
 
-import { BlogPost } from "../../interfaces/post";
-import { MetaTags, PageType, RobotsContent } from "../../interfaces/meta-tags";
-import Card from "../../shared/components/card/card.component";
+import { BlogPost } from '../../interfaces/post';
+import { MetaTags, PageType, RobotsContent } from '../../interfaces/meta-tags';
+import Card from '../../shared/components/card/card.component';
 
 type Props = {
   article: BlogPost;
