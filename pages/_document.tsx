@@ -16,6 +16,7 @@ export default class extends Document<Props> {
 
     return (
       <Html lang={language}>
+        <Head />
         <body>
           <Main />
           <NextScript />
