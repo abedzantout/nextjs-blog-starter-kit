@@ -1,6 +1,6 @@
 {
   "name": "nextjs-static-starter-kit",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "NextJS Boilerplate with static export",
   "main": "server.js",
   "scripts": {
