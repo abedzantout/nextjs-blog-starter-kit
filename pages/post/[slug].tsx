@@ -14,11 +14,16 @@ type Props = {
   suggestedArticles: BlogPost[];
 };
 
+interface PostPageContext {
+  article: BlogPost;
+  suggestedArticles: BlogPost[];
+}
+
 const renderCards = (suggestions) =>
   suggestions.map((suggestion, index) => (
     <Card key={index} info={suggestion} />
   ));
-const PostPage: NextPage<Props, any> = (props: Props) => {
+const PostPage: NextPage<Props, PostPageContext> = (props: Props) => {
   const postMetaTags: MetaTags = {
     canonical: `${process.env.DOMAIN_PUBLIC}`,
     description: `${props.article.description}`,
@@ -45,7 +50,7 @@ const PostPage: NextPage<Props, any> = (props: Props) => {
   );
 };
 
-PostPage.getInitialProps = async ({ query }) => {
+PostPage.getInitialProps = async ({ query }): Promise<PostPageContext> => {
   const contentfulService = new ContentfulService();
 
   const { post } = query;

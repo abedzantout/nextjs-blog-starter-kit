@@ -1,9 +1,9 @@
-import { createClient } from 'contentful';
-import { BlogPost } from '../interfaces/post';
+import { createClient } from "contentful";
+import { BlogPost } from "../interfaces/post";
 
-export const CONTENT_TYPE_BLOGPOST = 'blogPost';
-export const CONTENT_TYPE_PERSON = 'author';
-export const CONTENT_TYPE_TAGS = 'tag';
+export const CONTENT_TYPE_BLOGPOST = "blogPost";
+export const CONTENT_TYPE_PERSON = "author";
+export const CONTENT_TYPE_TAGS = "tag";
 
 const Space = process.env.CONTENTFUL_SPACE;
 const Token = process.env.CONTENTFUL_TOKEN;
@@ -35,7 +35,7 @@ export class ContentfulService {
   async fetchPostBySlug(slug) {
     return await this.client.getEntries({
       content_type: CONTENT_TYPE_BLOGPOST,
-      'fields.slug': slug
+      "fields.slug": slug
     });
   }
 
@@ -61,7 +61,7 @@ export class ContentfulService {
     { limit, skip, tag }: { limit?: number; skip?: number; tag?: string } = {
       limit: 5,
       skip: 0,
-      tag: ''
+      tag: ""
     }
   ) {
     try {
@@ -69,8 +69,8 @@ export class ContentfulService {
         include: 1,
         limit,
         skip,
-        order: 'fields.publishDate',
-        'fields.tags.sys.id': tag,
+        // order: 'fields.publishedDate',
+        "fields.tags.sys.id": tag,
         content_type: CONTENT_TYPE_BLOGPOST
       });
 
@@ -87,15 +87,16 @@ export class ContentfulService {
 
   async getPostBySlug(slug) {
     try {
-      const content: any = await this.fetchPostBySlug(slug);
+      const content = await this.fetchPostBySlug(slug);
 
-      const entry: { sys: any; fields: any } = content.items[0];
+      const entry: { sys; fields } = content.items[0];
 
       const author = {
         name: entry.fields.author.fields.name,
         title: entry.fields.author.fields.title,
         company: entry.fields.author.fields.company,
-        shortBio: entry.fields.author.fields.shortBio
+        shortBio: entry.fields.author.fields.shortBio,
+        email: entry.fields.author.fields.email
       };
 
       return {
@@ -107,7 +108,7 @@ export class ContentfulService {
         tags: entry.fields.tags,
         heroImage: { url: entry.fields.heroImage.fields.file.url },
         author: { ...author, id: entry.fields.author.sys.id },
-        publishedAt: entry.fields.publishDate
+        publishedDate: entry.fields.publishDate
           ? new Date(entry.fields.publishDate)
           : new Date(entry.sys.createdAt)
       };
@@ -124,8 +125,8 @@ export class ContentfulService {
       content_type: CONTENT_TYPE_BLOGPOST,
       limit,
       // find at least one matching tag, else undefined properties are not copied
-      'fields.tags.sys.id[in]': tags.length ? tags.join(',') : undefined,
-      'fields.slug[ne]': currentArticleSlug // exclude current article
+      "fields.tags.sys.id[in]": tags.length ? tags.join(",") : undefined,
+      "fields.slug[ne]": currentArticleSlug // exclude current article
     };
 
     try {
@@ -139,14 +140,14 @@ export class ContentfulService {
           ...suggestionsByTags.items,
           { fields: { slug: currentArticleSlug } }
         ]
-          .map((item: { fields: any }) => item.fields.slug)
-          .join(',');
+          .map((item: { fields }) => item.fields.slug)
+          .join(",");
 
         // fetch random suggestions
         const randomSuggestions = await this.client.getEntries({
           content_type: CONTENT_TYPE_BLOGPOST,
           limit: limit - suggestionsByTags.total,
-          'fields.slug[nin]': slugsToExclude // exclude slugs already fetched
+          "fields.slug[nin]": slugsToExclude // exclude slugs already fetched
         });
 
         entries = [...entries, ...randomSuggestions.items];

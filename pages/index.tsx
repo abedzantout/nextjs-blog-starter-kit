@@ -11,12 +11,21 @@ import Card from '../shared/components/card/card.component';
 import Paginator from '../shared/components/paginator/paginator.component';
 import TagFilters from '../shared/components/tag-filters/tag-filters.component';
 
+interface IndexPageContext {
+  page: number;
+  tags: { id: string; name: string }[];
+  entries: BlogPost[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
 const calculateRange = (length) => Array.from({ length }, (v, k) => k + 1);
 
 type Props = {
   entries: BlogPost[];
   tags: { id: string; name: string }[];
-  url: any;
+  url: string;
   total: number;
   skip: number;
   limit: number;
@@ -26,7 +35,7 @@ type Props = {
 const cards = (entries) =>
   entries.map((entry, index) => <Card info={entry} key={index} />);
 
-const IndexPage: NextPage<Props, any> = (props: Props) => {
+const IndexPage: NextPage<Props, IndexPageContext> = (props: Props) => {
   const router = useRouter();
   const entries = props.entries.length ? props.entries : [];
   const tags = props.tags || [];
@@ -74,7 +83,7 @@ const IndexPage: NextPage<Props, any> = (props: Props) => {
   );
 };
 
-IndexPage.getInitialProps = async ({ query }) => {
+IndexPage.getInitialProps = async ({ query }): Promise<IndexPageContext> => {
   const contentfulService = new ContentfulService();
   let page = 1;
 
