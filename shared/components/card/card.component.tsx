@@ -30,8 +30,11 @@ const Card: FunctionComponent<Props> = ({ info }) => {
       </div>
 
       <div className={styles.card__footer}>
-        <Link href={getHref()} as={getNavigationLink(info.slug)}>
-          <a className={styles.card__action}>Explore</a>
+        <Link
+          href={getHref()}
+          as={getNavigationLink(info.slug)}
+          className={styles.card__action}>
+          Explore
         </Link>
       </div>
     </div>

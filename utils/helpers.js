@@ -1,8 +1,8 @@
 const { createClient } = require('contentful');
 require('dotenv').config();
 
-const Space = process.env.CONTENTFUL_SPACE;
-const Token = process.env.CONTENTFUL_TOKEN;
+const Space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE;
+const Token = process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN;
 
 const client = createClient({
   space: Space,

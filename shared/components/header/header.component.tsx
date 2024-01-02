@@ -7,7 +7,7 @@ const Header: FunctionComponent = () => {
   return (
     <div className={styles.nav}>
       <div className={styles.brand}>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <img
             className={styles.brand__logo}
             src="https://www.techhive.io/static/brand/logo-masterclass.svg"
